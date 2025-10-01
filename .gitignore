@@ -114,3 +114,6 @@ coverage/
 # Vitest
 coverage
 .vitest
+
+# Serena (Claude Code assistant)
+.serena
