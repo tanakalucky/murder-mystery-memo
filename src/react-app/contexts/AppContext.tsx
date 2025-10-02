@@ -102,7 +102,11 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
       content: entry.content,
       timestamp: entry.timestamp,
     }));
-    setMessages((prev) => [...prev, ...timelineMessages]);
+    setMessages((prev) =>
+      [...prev, ...timelineMessages].sort(
+        (a, b) => a.timestamp.getTime() - b.timestamp.getTime(),
+      ),
+    );
     setTimeline([]);
   };
 
