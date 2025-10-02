@@ -2,18 +2,24 @@
   "mcpServers": {
     "serena": {
       "command": "uvx",
-      "args": ["mcp-server-serena"]
+      "args": [
+        "--from",
+        "git+https://github.com/oraios/serena",
+        "serena-mcp-server",
+        "--context",
+        "ide-assistant"
+      ]
     },
     "context7": {
-      "command": "npx",
-      "args": ["-y", "@upflare/mcp-context7"]
+      "command": "bunx",
+      "args": ["--yes", "@upstash/context7-mcp"]
     },
     "playwright": {
-      "command": "npx",
+      "command": "bunx",
       "args": ["@playwright/mcp@latest"]
     },
     "chrome-devtools": {
-      "command": "npx",
+      "command": "bunx",
       "args": ["chrome-devtools-mcp@latest"]
     }
   }
