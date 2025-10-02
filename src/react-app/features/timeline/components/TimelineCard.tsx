@@ -1,5 +1,7 @@
 import { useApp } from '@/contexts/AppContext';
-import { CreditCard as Edit3 } from 'lucide-react';
+import { useDnd } from '@/features/dnd/DndContext';
+import { CreditCard as Edit3, Grip } from 'lucide-react';
+import type React from 'react';
 import { useState } from 'react';
 import type { TimelineEntry } from '../types';
 
@@ -9,6 +11,7 @@ interface TimelineCardProps {
 
 export function TimelineCard({ entry }: TimelineCardProps) {
   const { editTimelineEntry, startEditingTimelineEntry } = useApp();
+  const { startDrag } = useDnd();
   const [editValue, setEditValue] = useState(entry.content);
 
   const handleSave = () => {
@@ -20,8 +23,17 @@ export function TimelineCard({ entry }: TimelineCardProps) {
     editTimelineEntry(entry.id, entry.content);
   };
 
+  const handleDragStart = (e: React.DragEvent) => {
+    startDrag(entry);
+    e.dataTransfer.effectAllowed = 'move';
+  };
+
   return (
-    <div className='group bg-gradient-to-r from-amber-900/20 to-amber-800/20 rounded-lg p-3 border border-amber-700/30 hover:border-amber-500/50 transition-all duration-200 backdrop-blur-sm'>
+    <div
+      className='group bg-gradient-to-r from-amber-900/20 to-amber-800/20 rounded-lg p-3 border border-amber-700/30 hover:border-amber-500/50 transition-all duration-200 backdrop-blur-sm cursor-move'
+      draggable
+      onDragStart={handleDragStart}
+    >
       <div className='flex items-start justify-between'>
         <div className='flex-1'>
           {entry.isEditing ? (
@@ -59,7 +71,10 @@ export function TimelineCard({ entry }: TimelineCardProps) {
             </div>
           )}
         </div>
-        <Edit3 className='w-4 h-4 text-amber-400 opacity-0 group-hover:opacity-100 transition-opacity ml-3' />
+        <div className='flex items-center gap-2 ml-3'>
+          <Edit3 className='w-4 h-4 text-amber-400 opacity-0 group-hover:opacity-100 transition-opacity' />
+          <Grip className='w-4 h-4 text-amber-400 opacity-0 group-hover:opacity-100 transition-opacity' />
+        </div>
       </div>
     </div>
   );
