@@ -115,5 +115,9 @@ coverage/
 coverage
 .vitest
 
-# Serena (Claude Code assistant)
-.serena
+# Claude Code
+.claude/settings.local.json
+
+# Serena
+.serena/*
+!.serena/project.yml
