@@ -10,7 +10,7 @@ interface AppContextValue {
   timeline: TimelineEntry[];
   setTimeline: React.Dispatch<React.SetStateAction<TimelineEntry[]>>;
   currentDay: number;
-  setCurrentDay: React.Dispatch<React.SetStateAction<number>>;
+  setCurrentDay: (day: number) => void;
   addMessage: (content: string) => void;
   editMessage: (id: string, newContent: string) => void;
   startEditingMessage: (id: string) => void;
@@ -91,6 +91,26 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
     );
   };
 
+  const handleSetCurrentDay = (newDay: number) => {
+    const validDay = Math.max(1, newDay);
+
+    // 日数が減少した場合、表示されなくなる日のメモをメモリストに戻す
+    if (validDay < currentDay) {
+      const entriesToRemove = timeline.filter((entry) => entry.day > validDay);
+      if (entriesToRemove.length > 0) {
+        const messagesToAdd = entriesToRemove.map((entry) => ({
+          id: entry.id,
+          content: entry.content,
+          timestamp: entry.timestamp,
+        }));
+        setMessages((prev) => [...prev, ...messagesToAdd]);
+        setTimeline((prev) => prev.filter((entry) => entry.day <= validDay));
+      }
+    }
+
+    setCurrentDay(validDay);
+  };
+
   const clearHistory = () => {
     setMessages([]);
     setTimeline([]);
@@ -118,7 +138,7 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
         timeline,
         setTimeline,
         currentDay,
-        setCurrentDay,
+        setCurrentDay: handleSetCurrentDay,
         addMessage,
         editMessage,
         startEditingMessage,
