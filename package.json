@@ -32,15 +32,17 @@
     "@types/react": "19.0.10",
     "@types/react-dom": "19.0.4",
     "@vitejs/plugin-react": "^4.6.0",
+    "@vitest/browser": "^3.2.4",
     "@vitest/ui": "^3.2.3",
     "globals": "15.15.0",
     "jsdom": "^26.1.0",
     "lefthook": "^1.11.13",
     "oxlint": "^1.18.0",
+    "playwright": "^1.55.1",
     "typescript": "5.8.3",
     "vite": "^7.0.0",
     "vite-plugin-oxlint": "^1.4.0",
-    "vitest": "^3.2.3",
+    "vitest": "^3.2.4",
     "wrangler": "^4.20.0"
   },
   "scripts": {
