@@ -43,6 +43,7 @@
     "vite": "^7.0.0",
     "vite-plugin-oxlint": "^1.4.0",
     "vitest": "^3.2.4",
+    "vitest-browser-react": "^1.0.1",
     "wrangler": "^4.20.0"
   },
   "scripts": {
