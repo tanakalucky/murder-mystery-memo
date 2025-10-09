@@ -56,6 +56,8 @@
     "test": "vitest",
     "test:ui": "vitest --ui",
     "test:run": "vitest run",
+    "test:jsdom": "vitest --project jsdom",
+    "test:browser": "vitest --project browser",
     "lint": "oxlint",
     "format": "biome format --write",
     "biome-check": "biome check --write"
