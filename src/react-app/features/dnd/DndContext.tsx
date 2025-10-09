@@ -16,13 +16,17 @@ interface DndContextValue {
 const DndContext = createContext<DndContextValue | undefined>(undefined);
 
 // Type guard to check if an item is a TimelineEntry
-function isTimelineEntry(item: ChatMessage | TimelineEntry): item is TimelineEntry {
+function isTimelineEntry(
+  item: ChatMessage | TimelineEntry,
+): item is TimelineEntry {
   return 'day' in item && 'hour' in item;
 }
 
 export function DndProvider({ children }: { children: React.ReactNode }) {
   const { setMessages, setTimeline } = useApp();
-  const [draggedItem, setDraggedItem] = useState<ChatMessage | TimelineEntry | null>(null);
+  const [draggedItem, setDraggedItem] = useState<
+    ChatMessage | TimelineEntry | null
+  >(null);
   const [dragOverSlot, setDragOverSlot] = useState<{
     day: number;
     hour: number;
@@ -43,10 +47,8 @@ export function DndProvider({ children }: { children: React.ReactNode }) {
         // Moving an existing timeline entry to a new time slot
         setTimeline((prev) =>
           prev.map((entry) =>
-            entry.id === draggedItem.id
-              ? { ...entry, day, hour }
-              : entry
-          )
+            entry.id === draggedItem.id ? { ...entry, day, hour } : entry,
+          ),
         );
       } else {
         // Moving a chat message to the timeline
