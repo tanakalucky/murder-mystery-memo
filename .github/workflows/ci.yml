@@ -27,7 +27,7 @@ jobs:
         run: bun run lint
 
       - name: Run tests
-        run: bun run test:run
+        run: bun run test:browser --browser.headless
 
       - name: Type check
         run: bunx tsc --noEmit
