@@ -10,11 +10,11 @@ export default defineConfig({
     projects: [
       {
         test: {
-          name: 'jsdom',
-          include: ['src/react-app/**/tests/jsdom/*.test.tsx'],
-          environment: 'jsdom',
+          globals: true,
+          name: 'happy-dom',
+          include: ['src/react-app/**/tests/ui/*.test.tsx'],
+          environment: 'happy-dom',
           setupFiles: ['./src/test/setup.ts'],
-          css: true,
         },
         resolve: {
           alias: {
@@ -24,6 +24,7 @@ export default defineConfig({
       },
       {
         test: {
+          globals: true,
           name: 'browser',
           include: ['src/react-app/**/tests/browser/*.test.tsx'],
           browser: {
