@@ -9,6 +9,13 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        include:
+          - test-type: ui
+            command: test:ui
+          - test-type: browser
+            command: test:browser --browser.headless
 
     steps:
       - name: Checkout code
@@ -24,13 +31,14 @@ jobs:
         run: bun install --frozen-lockfile
 
       - name: Install Playwright browsers
+        if: matrix.test-type == 'browser'
         run: bunx playwright install --with-deps chromium
 
       - name: Run linter
         run: bun run lint
 
-      - name: Run tests
-        run: bun run test:browser --browser.headless
+      - name: Run tests (${{ matrix.test-type }})
+        run: bun run ${{ matrix.command }}
 
       - name: Type check
         run: bunx tsc --noEmit
