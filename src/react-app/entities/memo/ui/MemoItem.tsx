@@ -13,10 +13,40 @@ type MemoItemProps = {
 export function MemoItem({ memo, onUpdate, onDelete }: MemoItemProps) {
   const [isEditing, setIsEditing] = useState(false);
   const [editContent, setEditContent] = useState(memo.content);
+  const [isComposing, setIsComposing] = useState(false);
 
   const handleDoubleClick = () => {
     setIsEditing(true);
     setEditContent(memo.content);
+  };
+
+  const handleSave = () => {
+    const trimmedContent = editContent.trim();
+    if (trimmedContent && trimmedContent !== memo.content) {
+      onUpdate(memo.id, trimmedContent);
+    }
+    setIsEditing(false);
+  };
+
+  const handleCancel = () => {
+    setEditContent(memo.content);
+    setIsEditing(false);
+  };
+
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === "Enter" && !isComposing) {
+      handleSave();
+    } else if (e.key === "Escape") {
+      handleCancel();
+    }
+  };
+
+  const handleCompositionStart = () => {
+    setIsComposing(true);
+  };
+
+  const handleCompositionEnd = () => {
+    setIsComposing(false);
   };
 
   return (
@@ -27,6 +57,10 @@ export function MemoItem({ memo, onUpdate, onDelete }: MemoItemProps) {
             type="text"
             value={editContent}
             onChange={(e) => setEditContent(e.target.value)}
+            onKeyDown={handleKeyDown}
+            onBlur={handleSave}
+            onCompositionStart={handleCompositionStart}
+            onCompositionEnd={handleCompositionEnd}
             className="flex-1 px-2 py-1 bg-[var(--color-bg-primary)] text-[var(--color-text-primary)] border border-[var(--color-accent)] rounded focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)]"
             autoFocus
           />
