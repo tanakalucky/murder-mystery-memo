@@ -1,4 +1,4 @@
-import { renderHook, waitFor } from "@testing-library/react";
+import { act, renderHook, waitFor } from "@testing-library/react";
 import { afterEach, beforeEach, describe, expect, test } from "vitest";
 import { useMemos } from "../../../react-app/entities/memo/model/useMemos";
 
@@ -184,20 +184,18 @@ describe("useMemos", () => {
       expect(result.current.isLoading).toBe(false);
     });
 
-    result.current.addMemo("保存されるメモ");
+    act(() => {
+      result.current.addMemo("保存されるメモ");
+    });
 
     await waitFor(() => {
       const saved = localStorage.getItem("murder-mystery-memos");
-      expect(saved).toBeDefined();
+      expect(saved).not.toBeNull();
+      if (saved) {
+        const parsed = JSON.parse(saved);
+        expect(parsed.memos).toHaveLength(1);
+        expect(parsed.memos[0].content).toBe("保存されるメモ");
+      }
     });
-
-    const saved = localStorage.getItem("murder-mystery-memos");
-    expect(saved).toBeDefined();
-
-    if (saved) {
-      const parsed = JSON.parse(saved);
-      expect(parsed.memos).toHaveLength(1);
-      expect(parsed.memos[0].content).toBe("保存されるメモ");
-    }
   });
 });
