@@ -49,6 +49,10 @@ export function MemoItem({ memo, onUpdate, onDelete }: MemoItemProps) {
     setIsComposing(false);
   };
 
+  const handleDelete = () => {
+    onDelete(memo.id);
+  };
+
   return (
     <div className="p-4 bg-[var(--color-bg-secondary)] border border-[var(--color-accent)] rounded hover:bg-[var(--color-bg-hover)] transition-colors">
       <div className="flex items-center justify-between gap-2">
@@ -72,6 +76,13 @@ export function MemoItem({ memo, onUpdate, onDelete }: MemoItemProps) {
             {memo.content}
           </p>
         )}
+        <button
+          onClick={handleDelete}
+          className="flex-shrink-0 w-6 h-6 flex items-center justify-center text-[var(--color-danger)] hover:text-[var(--color-text-primary)] hover:bg-[var(--color-danger)] rounded transition-colors"
+          aria-label="削除"
+        >
+          ×
+        </button>
       </div>
     </div>
   );
