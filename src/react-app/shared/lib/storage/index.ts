@@ -1,0 +1,1 @@
+export { memoStorage } from "./memoStorage";
