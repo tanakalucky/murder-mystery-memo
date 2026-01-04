@@ -1,1 +1,12 @@
 @import "tailwindcss";
+
+@theme {
+	/* ミステリー風カラーパレット */
+	--color-bg-primary: #1a1410;
+	--color-bg-secondary: #2d2419;
+	--color-bg-hover: #3d3323;
+	--color-text-primary: #e8d5b7;
+	--color-text-secondary: #b8a088;
+	--color-accent: #8b6f47;
+	--color-danger: #8b4747;
+}
