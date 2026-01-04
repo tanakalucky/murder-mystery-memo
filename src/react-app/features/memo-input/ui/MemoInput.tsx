@@ -9,15 +9,24 @@ type MemoInputProps = {
  */
 export function MemoInput({ onAdd }: MemoInputProps) {
   const [content, setContent] = useState("");
+  const [isComposing, setIsComposing] = useState(false);
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
-    if (e.key === "Enter") {
+    if (e.key === "Enter" && !isComposing) {
       const trimmedContent = content.trim();
       if (trimmedContent) {
         onAdd(trimmedContent);
         setContent("");
       }
     }
+  };
+
+  const handleCompositionStart = () => {
+    setIsComposing(true);
+  };
+
+  const handleCompositionEnd = () => {
+    setIsComposing(false);
   };
 
   return (
@@ -27,6 +36,8 @@ export function MemoInput({ onAdd }: MemoInputProps) {
         value={content}
         onChange={(e) => setContent(e.target.value)}
         onKeyDown={handleKeyDown}
+        onCompositionStart={handleCompositionStart}
+        onCompositionEnd={handleCompositionEnd}
         placeholder="メモを入力してEnterキーで追加..."
         className="w-full px-4 py-3 bg-[var(--color-bg-secondary)] text-[var(--color-text-primary)] border border-[var(--color-accent)] rounded focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)]"
       />
