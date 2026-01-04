@@ -1,6 +1,7 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import type { Memo } from "./types";
 import { memoStorage } from "../../../shared/lib/storage";
+import { generateId, getNextOrder, reorderMemos as reorderMemosUtil } from "../lib/utils";
 
 /**
  * メモの状態管理フック
@@ -25,10 +26,61 @@ export function useMemos() {
     }
   }, [memos, isLoading]);
 
-  // 以降のサブタスクで機能を追加
+  /**
+   * メモを追加
+   */
+  const addMemo = useCallback(
+    (content: string) => {
+      const newMemo: Memo = {
+        id: generateId(),
+        content,
+        order: getNextOrder(memos),
+      };
+      setMemos((prev) => [...prev, newMemo]);
+    },
+    [memos],
+  );
+
+  /**
+   * メモを更新
+   */
+  const updateMemo = useCallback((id: string, content: string) => {
+    setMemos((prev) => prev.map((memo) => (memo.id === id ? { ...memo, content } : memo)));
+  }, []);
+
+  /**
+   * メモを削除
+   */
+  const deleteMemo = useCallback((id: string) => {
+    setMemos((prev) => prev.filter((memo) => memo.id !== id));
+  }, []);
+
+  /**
+   * メモを並び替え
+   */
+  const reorderMemos = useCallback((oldIndex: number, newIndex: number) => {
+    setMemos((prev) => {
+      const reordered = [...prev];
+      const [removed] = reordered.splice(oldIndex, 1);
+      reordered.splice(newIndex, 0, removed);
+      return reorderMemosUtil(reordered);
+    });
+  }, []);
+
+  /**
+   * 全メモをリセット
+   */
+  const resetMemos = useCallback(() => {
+    setMemos([]);
+  }, []);
 
   return {
     memos,
+    addMemo,
+    updateMemo,
+    deleteMemo,
+    reorderMemos,
+    resetMemos,
     isLoading,
   };
 }
