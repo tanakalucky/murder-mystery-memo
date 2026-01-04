@@ -1,0 +1,63 @@
+{
+  "name": "hono-app-boilerplate",
+  "description": "A template for building a React application with Vite, Hono, and Cloudflare Workers",
+  "version": "0.0.0",
+  "cloudflare": {
+    "label": "Hono App Boilerplate",
+    "products": [
+      "Workers"
+    ],
+    "categories": [],
+    "icon_urls": [
+      "https://imagedelivery.net/wSMYJvS3Xw-n339CbDyDIA/5ca0ca32-e897-4699-d4c1-6b680512f000/public"
+    ],
+    "preview_image_url": "https://imagedelivery.net/wSMYJvS3Xw-n339CbDyDIA/fc7b4b62-442b-4769-641b-ad4422d74300/public",
+    "publish": true
+  },
+  "dependencies": {
+    "@tailwindcss/vite": "^4.1.11",
+    "@tanstack/react-query": "^5.80.7",
+    "hono": "^4.8.1",
+    "react": "19.2.3",
+    "react-dom": "19.2.3",
+    "tailwindcss": "^4.1.11",
+    "wouter": "^3.7.1"
+  },
+  "devDependencies": {
+    "@cloudflare/vite-plugin": "^1.8.0",
+    "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/react": "^16.3.0",
+    "@testing-library/user-event": "^14.6.1",
+    "@types/node": "^24.0.0",
+    "@types/react": "19.2.7",
+    "@types/react-dom": "19.2.3",
+    "@typescript/native-preview": "^7.0.0-dev.20251010.1",
+    "@vitejs/plugin-react": "^5.0.0",
+    "@vitest/ui": "^4.0.0",
+    "globals": "16.5.0",
+    "jsdom": "^26.1.0",
+    "lefthook": "^2.0.0",
+    "oxfmt": "^0.21.0",
+    "oxlint": "^1.36.0",
+    "oxlint-tsgolint": "^0.10.0",
+    "typescript": "5.9.3",
+    "vite": "^7.2.4",
+    "vite-plugin-oxlint": "^1.4.0",
+    "vitest": "^4.0.0",
+    "wrangler": "^4.20.0"
+  },
+  "scripts": {
+    "build": "bunx tsgo -b && vite build",
+    "cf-typegen": "wrangler types",
+    "check": "bunx tsgo && vite build && wrangler deploy --dry-run",
+    "deploy": "wrangler deploy",
+    "dev": "vite",
+    "preview": "npm run build && vite preview",
+    "test": "vitest",
+    "test:ui": "vitest --ui",
+    "test:run": "vitest run",
+    "lint": "oxlint --type-aware",
+    "format": "oxfmt ."
+  },
+  "type": "module"
+}
