@@ -7,11 +7,23 @@ export function MemoPage() {
   const { memos, addMemo, updateMemo, deleteMemo, reorderMemos, resetMemos } = useMemos();
 
   return (
-    <div className="min-h-screen bg-primary flex flex-col">
+    <div
+      className="min-h-screen flex flex-col"
+      style={{ backgroundColor: "var(--color-bg-primary)" }}
+    >
       <div className="w-full max-w-3xl mx-auto p-6 flex-1 flex flex-col">
         {/* ヘッダーとリセットボタン */}
-        <div className="flex justify-between items-center mb-6">
-          <h1 className="text-2xl font-bold text-primary">マーダーミステリーメモ</h1>
+        <div className="flex justify-between items-center mb-8">
+          <h1
+            className="text-4xl font-serif tracking-wide"
+            style={{
+              color: "var(--color-accent)",
+              textShadow: "0 0 10px rgba(212, 175, 55, 0.3)",
+              fontFamily: "Georgia, serif",
+            }}
+          >
+            マーダーミステリーメモ
+          </h1>
           <ResetButton onReset={resetMemos} />
         </div>
 

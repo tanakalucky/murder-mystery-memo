@@ -1,12 +1,23 @@
 @import "tailwindcss";
 
 @theme {
-	/* ミステリー風カラーパレット */
-	--color-bg-primary: #1a1410;
-	--color-bg-secondary: #2d2419;
-	--color-bg-hover: #3d3323;
-	--color-text-primary: #e8d5b7;
-	--color-text-secondary: #b8a088;
-	--color-accent: #8b6f47;
-	--color-danger: #8b4747;
+  /* ダークモード + ミステリアス カラーパレット */
+  /* 背景: 濃紺と深灰色 */
+  --color-bg-primary: #0f1419;
+  --color-bg-secondary: #1a1d2e;
+  --color-bg-hover: #252a3a;
+
+  /* テキスト: ゴールド系 */
+  --color-text-primary: #f4e4c1;
+  --color-text-secondary: #c5a572;
+
+  /* アクセント: ゴールド */
+  --color-accent: #d4af37;
+
+  /* 危険: 深紅 */
+  --color-danger: #8b1538;
+
+  /* Tailwindのカラークラス定義 */
+  --color-primary: var(--color-bg-primary);
+  --color-secondary: var(--color-bg-secondary);
 }

@@ -4,9 +4,6 @@ type MemoInputProps = {
   onAdd: (content: string) => void;
 };
 
-/**
- * メモ入力コンポーネント
- */
 export function MemoInput({ onAdd }: MemoInputProps) {
   const [content, setContent] = useState("");
   const [isComposing, setIsComposing] = useState(false);
@@ -39,7 +36,10 @@ export function MemoInput({ onAdd }: MemoInputProps) {
         onCompositionStart={handleCompositionStart}
         onCompositionEnd={handleCompositionEnd}
         placeholder="メモを入力してEnterキーで追加..."
-        className="w-full px-4 py-3 bg-[var(--color-bg-secondary)] text-[var(--color-text-primary)] border border-[var(--color-accent)] rounded focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)]"
+        className="w-full px-5 py-4 bg-(--color-bg-secondary) text-text-primary border-2 border-accent rounded-lg focus:outline-none focus:ring-2 focus:ring-accent)] transition-all duration-200 placeholder:text-(--color-text-secondary)]"
+        style={{
+          boxShadow: "0 4px 12px rgba(212, 175, 55, 0.2)",
+        }}
       />
     </div>
   );

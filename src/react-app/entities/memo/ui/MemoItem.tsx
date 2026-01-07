@@ -7,9 +7,6 @@ type MemoItemProps = {
   onDelete: (id: string) => void;
 };
 
-/**
- * メモアイテムコンポーネント
- */
 export function MemoItem({ memo, onUpdate, onDelete }: MemoItemProps) {
   const [isEditing, setIsEditing] = useState(false);
   const [editContent, setEditContent] = useState(memo.content);
@@ -54,7 +51,12 @@ export function MemoItem({ memo, onUpdate, onDelete }: MemoItemProps) {
   };
 
   return (
-    <div className="p-4 bg-[var(--color-bg-secondary)] border border-[var(--color-accent)] rounded hover:bg-[var(--color-bg-hover)] transition-colors">
+    <div
+      className="p-4 bg-bg-secondary border border-accent rounded-lg hover:bg-bg-hover transition-all duration-200 cursor-move"
+      style={{
+        boxShadow: "0 2px 8px rgba(212, 175, 55, 0.15), inset 0 1px 0 rgba(212, 175, 55, 0.1)",
+      }}
+    >
       <div className="flex items-center justify-between gap-2">
         {isEditing ? (
           <input
@@ -65,12 +67,15 @@ export function MemoItem({ memo, onUpdate, onDelete }: MemoItemProps) {
             onBlur={handleSave}
             onCompositionStart={handleCompositionStart}
             onCompositionEnd={handleCompositionEnd}
-            className="flex-1 px-2 py-1 bg-[var(--color-bg-primary)] text-[var(--color-text-primary)] border border-[var(--color-accent)] rounded focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)]"
+            className="flex-1 px-3 py-2 bg-bg-primary text-text-primary border border-accent rounded focus:outline-none focus:ring-2 focus:ring-accent"
+            style={{
+              boxShadow: "0 0 10px rgba(212, 175, 55, 0.2)",
+            }}
             autoFocus
           />
         ) : (
           <p
-            className="flex-1 text-[var(--color-text-primary)] whitespace-pre-wrap break-words cursor-pointer"
+            className="flex-1 text-text-primary whitespace-pre-wrap wrap-break-word cursor-pointer"
             onDoubleClick={handleDoubleClick}
           >
             {memo.content}
@@ -78,7 +83,10 @@ export function MemoItem({ memo, onUpdate, onDelete }: MemoItemProps) {
         )}
         <button
           onClick={handleDelete}
-          className="flex-shrink-0 w-6 h-6 flex items-center justify-center text-[var(--color-danger)] hover:text-[var(--color-text-primary)] hover:bg-[var(--color-danger)] rounded transition-colors"
+          className="shrink-0 w-8 h-8 flex items-center justify-center text-danger hover:text-text-primary hover:bg-danger rounded transition-all duration-200 text-xl font-bold"
+          style={{
+            textShadow: "0 0 5px rgba(139, 21, 56, 0.3)",
+          }}
           aria-label="削除"
         >
           ×
