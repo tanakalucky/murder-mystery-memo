@@ -36,9 +36,22 @@ export function MemoInput({ onAdd }: MemoInputProps) {
         onCompositionStart={handleCompositionStart}
         onCompositionEnd={handleCompositionEnd}
         placeholder="メモを入力してEnterキーで追加..."
-        className="w-full px-5 py-4 bg-(--color-bg-secondary) text-text-primary border-2 border-accent rounded-lg focus:outline-none focus:ring-2 focus:ring-accent)] transition-all duration-200 placeholder:text-(--color-text-secondary)]"
+        className="w-full px-6 py-4 rounded-md focus:outline-none transition-all duration-300"
         style={{
-          boxShadow: "0 4px 12px rgba(212, 175, 55, 0.2)",
+          backgroundColor: "var(--color-bg-secondary)",
+          color: "var(--color-text-primary)",
+          fontFamily: "var(--font-body)",
+          fontSize: "1rem",
+          border: "2px solid transparent",
+          boxShadow: "var(--shadow-md)",
+        }}
+        onFocus={(e) => {
+          e.target.style.borderColor = "var(--color-border-focus)";
+          e.target.style.boxShadow = "0 0 0 3px rgba(196, 30, 58, 0.1)";
+        }}
+        onBlur={(e) => {
+          e.target.style.borderColor = "transparent";
+          e.target.style.boxShadow = "var(--shadow-md)";
         }}
       />
     </div>
