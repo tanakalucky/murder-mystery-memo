@@ -8,9 +8,23 @@ export const ResetButton = memo(function ResetButton({ onReset }: ResetButtonPro
   return (
     <button
       onClick={onReset}
-      className="px-6 py-2 font-semibold rounded-md transition-all duration-200 hover:shadow-lg bg-danger text-text-primary"
+      className="px-6 py-2.5 font-semibold rounded-lg transition-all duration-300 hover:scale-105"
       style={{
-        boxShadow: "0 0 10px rgba(139, 21, 56, 0.3)",
+        backgroundColor: "var(--color-danger)",
+        color: "var(--color-text-primary)",
+        fontFamily: "var(--font-body)",
+        fontSize: "0.875rem",
+        letterSpacing: "0.025em",
+        border: "1px solid var(--color-danger-hover)",
+        boxShadow: "var(--shadow-md)",
+      }}
+      onMouseEnter={(e) => {
+        e.currentTarget.style.backgroundColor = "var(--color-danger-hover)";
+        e.currentTarget.style.boxShadow = "var(--shadow-lg)";
+      }}
+      onMouseLeave={(e) => {
+        e.currentTarget.style.backgroundColor = "var(--color-danger)";
+        e.currentTarget.style.boxShadow = "var(--shadow-md)";
       }}
       type="button"
     >
