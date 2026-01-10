@@ -1,23 +1,100 @@
 @import "tailwindcss";
 
 @theme {
-  /* ダークモード + ミステリアス カラーパレット */
-  /* 背景: 濃紺と深灰色 */
-  --color-bg-primary: #0f1419;
-  --color-bg-secondary: #1a1d2e;
-  --color-bg-hover: #252a3a;
+  /* Crime Scene Noir カラーパレット */
 
-  /* テキスト: ゴールド系 */
-  --color-text-primary: #f4e4c1;
-  --color-text-secondary: #c5a572;
+  /* Primary - 深い闇と謎 */
+  --color-bg-primary: #0a0a0a;
+  --color-bg-secondary: #1a0a2e;
+  --color-bg-tertiary: #16213e;
+  --color-bg-hover: #2a1a3e;
 
-  /* アクセント: ゴールド */
-  --color-accent: #d4af37;
+  /* Accent - 証拠と手がかり */
+  --color-accent-primary: #c41e3a;
+  --color-accent-secondary: #d4af37;
+  --color-accent-hover: #a01628;
 
-  /* 危険: 深紅 */
-  --color-danger: #8b1538;
+  /* Text - 羊皮紙と古文書 */
+  --color-text-primary: #f5f5f0;
+  --color-text-secondary: #b8b8b8;
+  --color-text-muted: #6a6a6a;
+
+  /* Danger - 血痕 */
+  --color-danger: #8b0000;
+  --color-danger-hover: #660000;
+
+  /* Border & Divider */
+  --color-border: #2a2a2a;
+  --color-border-focus: #c41e3a;
+
+  /* Shadow */
+  --shadow-sm: 0 2px 4px rgba(196, 30, 58, 0.1);
+  --shadow-md: 0 4px 6px rgba(196, 30, 58, 0.15);
+  --shadow-lg: 0 10px 15px rgba(196, 30, 58, 0.2);
+  --shadow-glow: 0 0 20px rgba(212, 175, 55, 0.3);
 
   /* Tailwindのカラークラス定義 */
   --color-primary: var(--color-bg-primary);
   --color-secondary: var(--color-bg-secondary);
+
+  /* Typography */
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-body: 'Inter', -apple-system, system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Courier New', monospace;
+}
+
+/* グローバルスタイル */
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-bg-primary);
+  color: var(--color-text-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* カスタムスクロールバー */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-bg-secondary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-accent-primary);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-accent-hover);
+}
+
+/* アニメーション */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes glow {
+  0%, 100% {
+    text-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
+  }
+  50% {
+    text-shadow: 0 0 20px rgba(212, 175, 55, 0.6), 0 0 30px rgba(212, 175, 55, 0.4);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.5s ease-out;
+}
+
+.animate-glow {
+  animation: glow 2s ease-in-out infinite;
 }
