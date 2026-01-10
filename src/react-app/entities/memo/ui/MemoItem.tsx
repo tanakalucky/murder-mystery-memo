@@ -52,12 +52,24 @@ export function MemoItem({ memo, onUpdate, onDelete }: MemoItemProps) {
 
   return (
     <div
-      className="p-4 bg-bg-secondary border border-accent rounded-lg hover:bg-bg-hover transition-all duration-200 cursor-move"
+      className="px-4 py-3 rounded-lg cursor-move transition-all duration-300 hover:translate-y-[-2px] group"
       style={{
-        boxShadow: "0 2px 8px rgba(212, 175, 55, 0.15), inset 0 1px 0 rgba(212, 175, 55, 0.1)",
+        backgroundColor: "var(--color-bg-tertiary)",
+        border: "1px solid var(--color-border)",
+        boxShadow: "var(--shadow-sm)",
+      }}
+      onMouseEnter={(e) => {
+        e.currentTarget.style.backgroundColor = "var(--color-bg-hover)";
+        e.currentTarget.style.borderColor = "var(--color-accent-primary)";
+        e.currentTarget.style.boxShadow = "var(--shadow-md)";
+      }}
+      onMouseLeave={(e) => {
+        e.currentTarget.style.backgroundColor = "var(--color-bg-tertiary)";
+        e.currentTarget.style.borderColor = "var(--color-border)";
+        e.currentTarget.style.boxShadow = "var(--shadow-sm)";
       }}
     >
-      <div className="flex items-center justify-between gap-2">
+      <div className="flex items-center justify-between gap-3">
         {isEditing ? (
           <input
             type="text"
@@ -67,15 +79,25 @@ export function MemoItem({ memo, onUpdate, onDelete }: MemoItemProps) {
             onBlur={handleSave}
             onCompositionStart={handleCompositionStart}
             onCompositionEnd={handleCompositionEnd}
-            className="flex-1 px-3 py-2 bg-bg-primary text-text-primary border border-accent rounded focus:outline-none focus:ring-2 focus:ring-accent"
+            className="flex-1 px-3 py-2 rounded-md focus:outline-none transition-all duration-200"
             style={{
-              boxShadow: "0 0 10px rgba(212, 175, 55, 0.2)",
+              backgroundColor: "var(--color-bg-primary)",
+              color: "var(--color-text-primary)",
+              fontFamily: "var(--font-body)",
+              border: "2px solid var(--color-accent-primary)",
+              boxShadow: "0 0 0 3px rgba(196, 30, 58, 0.1)",
             }}
             autoFocus
           />
         ) : (
           <p
-            className="flex-1 text-text-primary whitespace-pre-wrap wrap-break-word cursor-pointer"
+            className="flex-1 whitespace-pre-wrap break-words cursor-pointer"
+            style={{
+              color: "var(--color-text-primary)",
+              fontFamily: "var(--font-body)",
+              fontSize: "0.9rem",
+              lineHeight: "1.5",
+            }}
             onDoubleClick={handleDoubleClick}
           >
             {memo.content}
@@ -83,9 +105,19 @@ export function MemoItem({ memo, onUpdate, onDelete }: MemoItemProps) {
         )}
         <button
           onClick={handleDelete}
-          className="shrink-0 w-8 h-8 flex items-center justify-center text-danger hover:text-text-primary hover:bg-danger rounded transition-all duration-200 text-xl font-bold"
+          className="shrink-0 w-8 h-8 flex items-center justify-center rounded-md transition-all duration-200 opacity-0 group-hover:opacity-100"
           style={{
-            textShadow: "0 0 5px rgba(139, 21, 56, 0.3)",
+            color: "var(--color-danger)",
+            fontSize: "1.4rem",
+            fontWeight: "bold",
+          }}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.backgroundColor = "var(--color-danger)";
+            e.currentTarget.style.color = "var(--color-text-primary)";
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.backgroundColor = "transparent";
+            e.currentTarget.style.color = "var(--color-danger)";
           }}
           aria-label="削除"
         >
