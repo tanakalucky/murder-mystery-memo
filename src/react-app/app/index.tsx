@@ -3,8 +3,6 @@ import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 
 import "./styles/index.css";
-import { Route, Switch } from "wouter";
-
 import { ErrorBoundary } from "@/app/providers/ErrorBoundary";
 import { MemoPage } from "@/pages/memo";
 
@@ -21,9 +19,7 @@ createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <ErrorBoundary>
       <QueryClientProvider client={queryClient}>
-        <Switch>
-          <Route path="/" component={MemoPage} />
-        </Switch>
+        <MemoPage />
       </QueryClientProvider>
     </ErrorBoundary>
   </StrictMode>,
