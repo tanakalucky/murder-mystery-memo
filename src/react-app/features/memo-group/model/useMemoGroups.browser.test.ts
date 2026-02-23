@@ -101,6 +101,61 @@ describe("useMemoGroups", () => {
     expect(result.current.groups[0].isCollapsed).toBe(false);
   });
 
+  it("カードをlistOrderに追加できる", async () => {
+    const { result, act } = await renderHook(() => useMemoGroups([]));
+
+    await act(() => {
+      result.current.addCardToListOrder("c1");
+    });
+
+    expect(result.current.listOrder).toEqual([{ type: "card", id: "c1" }]);
+  });
+
+  it("カードをlistOrderから削除できる", async () => {
+    const cards = [
+      { id: "c1", groupId: undefined },
+      { id: "c2", groupId: undefined },
+    ];
+
+    const { result, act } = await renderHook(() => useMemoGroups(cards));
+
+    await act(() => {
+      result.current.removeCardFromListOrder("c1");
+    });
+
+    expect(result.current.listOrder).toEqual([{ type: "card", id: "c2" }]);
+  });
+
+  it("listOrderの並べ替えができる", async () => {
+    const cards = [
+      { id: "c1", groupId: undefined },
+      { id: "c2", groupId: undefined },
+    ];
+
+    const { result, act } = await renderHook(() => useMemoGroups(cards));
+
+    await act(() => {
+      result.current.reorderListItems("c2", "c1");
+    });
+
+    expect(result.current.listOrder).toEqual([
+      { type: "card", id: "c2" },
+      { type: "card", id: "c1" },
+    ]);
+  });
+
+  it("存在しないIDでreorderListItemsを呼んでも変更されない", async () => {
+    const cards = [{ id: "c1", groupId: undefined }];
+
+    const { result, act } = await renderHook(() => useMemoGroups(cards));
+
+    await act(() => {
+      result.current.reorderListItems("nonexistent", "c1");
+    });
+
+    expect(result.current.listOrder).toEqual([{ type: "card", id: "c1" }]);
+  });
+
   it("リロード後も状態が復元される", async () => {
     const { result: first, act } = await renderHook(() => useMemoGroups([]));
 

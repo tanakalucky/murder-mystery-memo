@@ -33,6 +33,7 @@ export function MemoGroupHeader({
   }, [isEditing]);
 
   const handleFinishEdit = () => {
+    if (!isEditing) return;
     const value = inputRef.current?.value.trim();
     if (value) {
       onRename(value);
@@ -60,7 +61,7 @@ export function MemoGroupHeader({
           className="min-w-0 flex-1 rounded border border-amber-700/50 bg-transparent px-2 py-0.5 font-serif text-sm text-amber-100/90 outline-none focus:border-amber-600/70"
           onBlur={handleFinishEdit}
           onKeyDown={(e) => {
-            if (e.key === "Enter") handleFinishEdit();
+            if (e.key === "Enter" && !e.nativeEvent.isComposing) handleFinishEdit();
             if (e.key === "Escape") setIsEditing(false);
           }}
         />

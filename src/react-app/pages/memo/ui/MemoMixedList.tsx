@@ -17,7 +17,7 @@ import {
   sortableKeyboardCoordinates,
   verticalListSortingStrategy,
 } from "@dnd-kit/sortable";
-import { useCallback, useRef, useState } from "react";
+import { useMemo, useRef, useState } from "react";
 
 import { MemoCard, type MemoCardType } from "@/features/memo-card";
 import { MemoGroupCard, type MemoGroup, type MemoListItem } from "@/features/memo-group";
@@ -76,13 +76,23 @@ export function MemoMixedList({
     useSensor(KeyboardSensor, { coordinateGetter: sortableKeyboardCoordinates }),
   );
 
-  const cardsMap = new Map(cards.map((c) => [c.id, c]));
-  const groupsMap = new Map(groups.map((g) => [g.id, g]));
+  const cardsMap = useMemo(() => new Map(cards.map((c) => [c.id, c])), [cards]);
+  const groupsMap = useMemo(() => new Map(groups.map((g) => [g.id, g])), [groups]);
 
-  const getGroupCards = useCallback(
-    (groupId: string) => cards.filter((c) => c.groupId === groupId),
-    [cards],
-  );
+  const groupCardsMap = useMemo(() => {
+    const map = new Map<string, MemoCardType[]>();
+    for (const card of cards) {
+      if (card.groupId) {
+        const existing = map.get(card.groupId);
+        if (existing) {
+          existing.push(card);
+        } else {
+          map.set(card.groupId, [card]);
+        }
+      }
+    }
+    return map;
+  }, [cards]);
 
   const topLevelItemIds = listOrder.map((item) => item.id);
 
@@ -230,7 +240,7 @@ export function MemoMixedList({
 
             const group = groupsMap.get(item.id);
             if (!group) return null;
-            const groupCards = getGroupCards(group.id);
+            const groupCards = groupCardsMap.get(group.id) ?? [];
             const groupCardIds = groupCards.map((c) => c.id);
 
             return (

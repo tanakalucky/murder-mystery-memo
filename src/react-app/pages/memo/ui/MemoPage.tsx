@@ -4,8 +4,16 @@ import { useMemoGroups } from "@/features/memo-group";
 import { MemoMixedList } from "./MemoMixedList";
 
 export function MemoPage() {
-  const { cards, addCard, updateCard, deleteCard, deleteAllCards, reorderCards, moveCardToGroup } =
-    useMemoCards();
+  const {
+    cards,
+    addCard,
+    updateCard,
+    deleteCard,
+    deleteAllCards,
+    reorderCards,
+    moveCardToGroup,
+    clearGroupFromCards,
+  } = useMemoCards();
   const {
     groups,
     listOrder,
@@ -37,10 +45,7 @@ export function MemoPage() {
   };
 
   const handleDeleteGroup = (groupId: string, cardIds: string[]) => {
-    // Clear groupId for all cards in this group
-    for (const cardId of cardIds) {
-      moveCardToGroup(cardId, undefined);
-    }
+    clearGroupFromCards(groupId);
     deleteGroup(groupId, cardIds);
   };
 

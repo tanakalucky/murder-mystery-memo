@@ -58,6 +58,14 @@ export function useMemoCards() {
     });
   }, []);
 
+  const clearGroupFromCards = useCallback((groupId: string) => {
+    setCards((prev) => {
+      const next = prev.map((c) => (c.groupId === groupId ? { ...c, groupId: undefined } : c));
+      saveCards(next);
+      return next;
+    });
+  }, []);
+
   return {
     cards,
     addCard,
@@ -66,5 +74,6 @@ export function useMemoCards() {
     deleteAllCards,
     reorderCards,
     moveCardToGroup,
+    clearGroupFromCards,
   } as const;
 }
