@@ -41,8 +41,8 @@ interface MemoMixedListProps {
 
 const ROOT_CONTAINER = "root";
 
-function findContainer(cardId: string, cards: MemoCardType[]): string {
-  const card = cards.find((c) => c.id === cardId);
+function findContainer(cardId: string, cardsMap: Map<string, MemoCardType>): string {
+  const card = cardsMap.get(cardId);
   if (card?.parentId) return card.parentId;
   return ROOT_CONTAINER;
 }
@@ -93,7 +93,18 @@ export function MemoMixedList({
     return map;
   }, [cards]);
 
-  const topLevelItemIds = listOrder.map((item) => item.id);
+  const childIdsMap = useMemo(() => {
+    const map = new Map<string, string[]>();
+    for (const [parentId, children] of childCardsMap) {
+      map.set(
+        parentId,
+        children.map((c) => c.id),
+      );
+    }
+    return map;
+  }, [childCardsMap]);
+
+  const topLevelItemIds = useMemo(() => listOrder.map((item) => item.id), [listOrder]);
 
   const handleDragStart = (event: DragStartEvent) => {
     setActiveId(String(event.active.id));
@@ -145,7 +156,7 @@ export function MemoMixedList({
       return;
     }
 
-    const activeContainer = findContainer(activeIdStr, cards);
+    const activeContainer = findContainer(activeIdStr, cardsMap);
 
     if (targetContainer !== ROOT_CONTAINER) {
       setOverParentId(targetContainer);
@@ -201,8 +212,8 @@ export function MemoMixedList({
       return;
     }
 
-    const activeContainer = findContainer(activeIdStr, cards);
-    const overContainer = findContainer(overIdStr, cards);
+    const activeContainer = findContainer(activeIdStr, cardsMap);
+    const overContainer = findContainer(overIdStr, cardsMap);
 
     if (activeContainer === overContainer && activeContainer !== ROOT_CONTAINER) {
       onReorderCards(activeIdStr, overIdStr);
@@ -235,9 +246,9 @@ export function MemoMixedList({
             if (!card) return null;
 
             const childCards = childCardsMap.get(card.id);
+            const childIds = childIdsMap.get(card.id);
 
-            if (childCards && childCards.length > 0) {
-              const childIds = childCards.map((c) => c.id);
+            if (childCards && childCards.length > 0 && childIds) {
               return (
                 <MemoParentCard
                   key={card.id}

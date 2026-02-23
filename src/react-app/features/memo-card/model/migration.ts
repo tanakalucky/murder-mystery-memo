@@ -1,12 +1,10 @@
+import { CARDS_KEY, COLLAPSE_STATE_KEY, LIST_ORDER_KEY } from "./storage";
 import type { MemoCard } from "./types";
 
 const MIGRATION_VERSION_KEY = "murder-mystery-memo-migration-version";
 const CURRENT_VERSION = 1;
 
 const OLD_GROUPS_KEY = "murder-mystery-memo-groups";
-const OLD_LIST_ORDER_KEY = "murder-mystery-memo-list-order";
-const CARDS_KEY = "murder-mystery-memo-cards";
-const COLLAPSE_STATE_KEY = "murder-mystery-memo-collapse-state";
 
 interface OldMemoGroup {
   id: string;
@@ -61,10 +59,10 @@ function migrateGroupsToParentCards(): void {
     collapseState[group.id] = group.isCollapsed;
   }
 
-  const migratedCards = cards.map((card) => {
-    if (!card.groupId) return card;
+  const migratedCards: MemoCard[] = cards.map((card) => {
     const { groupId, ...rest } = card;
-    return { ...rest, parentId: groupId } as MemoCard;
+    if (!groupId) return rest;
+    return { ...rest, parentId: groupId };
   });
 
   const allCards = [...migratedCards, ...newCards];
@@ -75,7 +73,7 @@ function migrateGroupsToParentCards(): void {
       type: "card" as const,
       id: item.id,
     }));
-    localStorage.setItem(OLD_LIST_ORDER_KEY, JSON.stringify(newListOrder));
+    localStorage.setItem(LIST_ORDER_KEY, JSON.stringify(newListOrder));
   }
 
   localStorage.setItem(COLLAPSE_STATE_KEY, JSON.stringify(collapseState));
@@ -110,7 +108,7 @@ function loadCards(): Array<{ id: string; body: string; createdAt: number; group
 
 function loadOldListOrder(): OldMemoListItem[] | null {
   try {
-    const raw = localStorage.getItem(OLD_LIST_ORDER_KEY);
+    const raw = localStorage.getItem(LIST_ORDER_KEY);
     if (!raw) return null;
     return JSON.parse(raw) as OldMemoListItem[];
   } catch {

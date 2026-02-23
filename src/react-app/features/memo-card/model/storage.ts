@@ -1,8 +1,8 @@
 import type { MemoCard, MemoListItem } from "./types";
 
-const CARDS_KEY = "murder-mystery-memo-cards";
-const LIST_ORDER_KEY = "murder-mystery-memo-list-order";
-const COLLAPSE_STATE_KEY = "murder-mystery-memo-collapse-state";
+export const CARDS_KEY = "murder-mystery-memo-cards";
+export const LIST_ORDER_KEY = "murder-mystery-memo-list-order";
+export const COLLAPSE_STATE_KEY = "murder-mystery-memo-collapse-state";
 
 export function loadCards(): MemoCard[] {
   try {

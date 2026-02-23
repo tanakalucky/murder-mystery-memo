@@ -1,14 +1,10 @@
-import { useEffect } from "react";
-
 import { MemoInput, migrateIfNeeded, useMemoCards, useMemoListOrder } from "@/features/memo-card";
 
 import { MemoMixedList } from "./MemoMixedList";
 
-export function MemoPage() {
-  useEffect(() => {
-    migrateIfNeeded();
-  }, []);
+migrateIfNeeded();
 
+export function MemoPage() {
   const {
     cards,
     addCard,
