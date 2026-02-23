@@ -1,11 +1,12 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { StrictMode } from "react";
-
-import "./styles/index.css";
 import { createRoot } from "react-dom/client";
 
+import "./styles/index.css";
+import { Route, Switch } from "wouter";
+
 import { ErrorBoundary } from "@/app/providers/ErrorBoundary";
-import { HomePage } from "@/pages/home";
+import { MemoPage } from "@/pages/memo";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -20,7 +21,9 @@ createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <ErrorBoundary>
       <QueryClientProvider client={queryClient}>
-        <HomePage />
+        <Switch>
+          <Route path="/" component={MemoPage} />
+        </Switch>
       </QueryClientProvider>
     </ErrorBoundary>
   </StrictMode>,
