@@ -50,5 +50,21 @@ export function useMemoCards() {
     });
   }, []);
 
-  return { cards, addCard, updateCard, deleteCard, deleteAllCards, reorderCards } as const;
+  const moveCardToGroup = useCallback((cardId: string, groupId: string | undefined) => {
+    setCards((prev) => {
+      const next = prev.map((c) => (c.id === cardId ? { ...c, groupId } : c));
+      saveCards(next);
+      return next;
+    });
+  }, []);
+
+  return {
+    cards,
+    addCard,
+    updateCard,
+    deleteCard,
+    deleteAllCards,
+    reorderCards,
+    moveCardToGroup,
+  } as const;
 }
