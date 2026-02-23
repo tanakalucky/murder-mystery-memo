@@ -1,7 +1,7 @@
 {
-  "name": "hono-app-boilerplate",
+  "name": "murder-mystery-memo",
   "version": "0.0.0",
-  "description": "A template for building a React application with Vite, Hono, and Cloudflare Workers",
+  "description": "Application for solving murder mysteries",
   "type": "module",
   "scripts": {
     "build": "vite build",
