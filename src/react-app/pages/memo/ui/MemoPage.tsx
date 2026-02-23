@@ -1,9 +1,14 @@
-import { MemoInput, useMemoCards } from "@/features/memo-card";
-import { useMemoGroups } from "@/features/memo-group";
+import { useEffect } from "react";
+
+import { MemoInput, migrateIfNeeded, useMemoCards, useMemoListOrder } from "@/features/memo-card";
 
 import { MemoMixedList } from "./MemoMixedList";
 
 export function MemoPage() {
+  useEffect(() => {
+    migrateIfNeeded();
+  }, []);
+
   const {
     cards,
     addCard,
@@ -11,21 +16,19 @@ export function MemoPage() {
     deleteCard,
     deleteAllCards,
     reorderCards,
-    moveCardToGroup,
-    clearGroupFromCards,
+    moveCardToParent,
+    clearChildrenFromParent,
   } = useMemoCards();
   const {
-    groups,
     listOrder,
-    addGroup,
-    deleteGroup,
-    renameGroup,
-    toggleCollapse,
+    collapseState,
     reorderListItems,
     addCardToListOrder,
     removeCardFromListOrder,
     syncListOrder,
-  } = useMemoGroups(cards);
+    toggleCollapse,
+    dissolveParent,
+  } = useMemoListOrder(cards);
 
   const handleAddCard = (body: string) => {
     const id = addCard(body);
@@ -33,20 +36,22 @@ export function MemoPage() {
   };
 
   const handleDeleteCard = (id: string) => {
+    const childIds = cards.filter((c) => c.parentId === id).map((c) => c.id);
+
+    if (childIds.length > 0) {
+      // 親カードの削除: 子をルートレベルに戻す
+      clearChildrenFromParent(id);
+      dissolveParent(id, childIds);
+    } else {
+      removeCardFromListOrder(id);
+    }
+
     deleteCard(id);
-    removeCardFromListOrder(id);
   };
 
   const handleDeleteAllCards = () => {
     deleteAllCards();
-    // Remove all card items from listOrder, keep groups
-    const groupsOnly = listOrder.filter((item) => item.type === "group");
-    syncListOrder(groupsOnly);
-  };
-
-  const handleDeleteGroup = (groupId: string, cardIds: string[]) => {
-    clearGroupFromCards(groupId);
-    deleteGroup(groupId, cardIds);
+    syncListOrder([]);
   };
 
   return (
@@ -59,16 +64,14 @@ export function MemoPage() {
 
           <MemoMixedList
             cards={cards}
-            groups={groups}
             listOrder={listOrder}
+            collapseState={collapseState}
             onUpdateCard={updateCard}
             onDeleteCard={handleDeleteCard}
-            onMoveCardToGroup={moveCardToGroup}
+            onMoveCardToParent={moveCardToParent}
             onReorderListItems={reorderListItems}
             onReorderCards={reorderCards}
             onToggleCollapse={toggleCollapse}
-            onRenameGroup={renameGroup}
-            onDeleteGroup={handleDeleteGroup}
             onSyncListOrder={syncListOrder}
           />
         </div>
@@ -77,7 +80,6 @@ export function MemoPage() {
       <MemoInput
         onSubmit={handleAddCard}
         onDeleteAll={handleDeleteAllCards}
-        onAddGroup={addGroup}
         hasCards={cards.length > 0}
       />
     </div>
