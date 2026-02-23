@@ -2,5 +2,7 @@ export interface MemoCard {
   id: string;
   body: string;
   createdAt: number;
-  groupId?: string;
+  parentId?: string;
 }
+
+export type MemoListItem = { type: "card"; id: string };
