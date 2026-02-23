@@ -6,8 +6,8 @@ beforeEach(() => {
   localStorage.clear();
 });
 
-describe("useMemoCards - moveCardToGroup", () => {
-  it("カードをグループに移動できる", async () => {
+describe("useMemoCards - moveCardToParent", () => {
+  it("カードを親に設定できる", async () => {
     const { result, act } = await renderHook(() => useMemoCards());
 
     let cardId: string;
@@ -16,13 +16,13 @@ describe("useMemoCards - moveCardToGroup", () => {
     });
 
     await act(() => {
-      result.current.moveCardToGroup(cardId, "g1");
+      result.current.moveCardToParent(cardId, "p1");
     });
 
-    expect(result.current.cards.find((c) => c.id === cardId)?.groupId).toBe("g1");
+    expect(result.current.cards.find((c) => c.id === cardId)?.parentId).toBe("p1");
   });
 
-  it("カードをグループから取り外せる", async () => {
+  it("カードを親から外せる", async () => {
     const { result, act } = await renderHook(() => useMemoCards());
 
     let cardId: string;
@@ -31,17 +31,17 @@ describe("useMemoCards - moveCardToGroup", () => {
     });
 
     await act(() => {
-      result.current.moveCardToGroup(cardId, "g1");
+      result.current.moveCardToParent(cardId, "p1");
     });
 
     await act(() => {
-      result.current.moveCardToGroup(cardId, undefined);
+      result.current.moveCardToParent(cardId, undefined);
     });
 
-    expect(result.current.cards.find((c) => c.id === cardId)?.groupId).toBeUndefined();
+    expect(result.current.cards.find((c) => c.id === cardId)?.parentId).toBeUndefined();
   });
 
-  it("グループ移動後にリロードしても状態が復元される", async () => {
+  it("親設定後にリロードしても状態が復元される", async () => {
     const { result: first, act } = await renderHook(() => useMemoCards());
 
     let cardId: string;
@@ -50,17 +50,17 @@ describe("useMemoCards - moveCardToGroup", () => {
     });
 
     await act(() => {
-      first.current.moveCardToGroup(cardId, "g1");
+      first.current.moveCardToParent(cardId, "p1");
     });
 
     const { result: second } = await renderHook(() => useMemoCards());
 
-    expect(second.current.cards.find((c) => c.id === cardId)?.groupId).toBe("g1");
+    expect(second.current.cards.find((c) => c.id === cardId)?.parentId).toBe("p1");
   });
 });
 
-describe("useMemoCards - clearGroupFromCards", () => {
-  it("指定グループの全カードからgroupIdをクリアする", async () => {
+describe("useMemoCards - clearChildrenFromParent", () => {
+  it("指定親の全カードからparentIdをクリアする", async () => {
     const { result, act } = await renderHook(() => useMemoCards());
 
     let cardId1: string;
@@ -73,18 +73,18 @@ describe("useMemoCards - clearGroupFromCards", () => {
     });
 
     await act(() => {
-      result.current.moveCardToGroup(cardId1, "g1");
-      result.current.moveCardToGroup(cardId2, "g1");
-      result.current.moveCardToGroup(cardId3, "g2");
+      result.current.moveCardToParent(cardId1, "p1");
+      result.current.moveCardToParent(cardId2, "p1");
+      result.current.moveCardToParent(cardId3, "p2");
     });
 
     await act(() => {
-      result.current.clearGroupFromCards("g1");
+      result.current.clearChildrenFromParent("p1");
     });
 
-    expect(result.current.cards.find((c) => c.id === cardId1)?.groupId).toBeUndefined();
-    expect(result.current.cards.find((c) => c.id === cardId2)?.groupId).toBeUndefined();
-    expect(result.current.cards.find((c) => c.id === cardId3)?.groupId).toBe("g2");
+    expect(result.current.cards.find((c) => c.id === cardId1)?.parentId).toBeUndefined();
+    expect(result.current.cards.find((c) => c.id === cardId2)?.parentId).toBeUndefined();
+    expect(result.current.cards.find((c) => c.id === cardId3)?.parentId).toBe("p2");
   });
 
   it("クリア後にリロードしても状態が復元される", async () => {
@@ -96,15 +96,15 @@ describe("useMemoCards - clearGroupFromCards", () => {
     });
 
     await act(() => {
-      first.current.moveCardToGroup(cardId, "g1");
+      first.current.moveCardToParent(cardId, "p1");
     });
 
     await act(() => {
-      first.current.clearGroupFromCards("g1");
+      first.current.clearChildrenFromParent("p1");
     });
 
     const { result: second } = await renderHook(() => useMemoCards());
 
-    expect(second.current.cards.find((c) => c.id === cardId)?.groupId).toBeUndefined();
+    expect(second.current.cards.find((c) => c.id === cardId)?.parentId).toBeUndefined();
   });
 });
