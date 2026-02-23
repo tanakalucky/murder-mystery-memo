@@ -50,17 +50,17 @@ export function useMemoCards() {
     });
   }, []);
 
-  const moveCardToGroup = useCallback((cardId: string, groupId: string | undefined) => {
+  const moveCardToParent = useCallback((cardId: string, parentId: string | undefined) => {
     setCards((prev) => {
-      const next = prev.map((c) => (c.id === cardId ? { ...c, groupId } : c));
+      const next = prev.map((c) => (c.id === cardId ? { ...c, parentId } : c));
       saveCards(next);
       return next;
     });
   }, []);
 
-  const clearGroupFromCards = useCallback((groupId: string) => {
+  const clearChildrenFromParent = useCallback((parentId: string) => {
     setCards((prev) => {
-      const next = prev.map((c) => (c.groupId === groupId ? { ...c, groupId: undefined } : c));
+      const next = prev.map((c) => (c.parentId === parentId ? { ...c, parentId: undefined } : c));
       saveCards(next);
       return next;
     });
@@ -73,7 +73,7 @@ export function useMemoCards() {
     deleteCard,
     deleteAllCards,
     reorderCards,
-    moveCardToGroup,
-    clearGroupFromCards,
+    moveCardToParent,
+    clearChildrenFromParent,
   } as const;
 }
