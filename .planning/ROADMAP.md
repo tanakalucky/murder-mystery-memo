@@ -51,12 +51,12 @@ Plans:
 3. Double-clicking an existing memo re-enters edit mode; clicking outside the memo confirms the edit
 4. User can drag any memo to reposition it freely on the canvas
 
-**Plans**: TBD
+**Plans**: 2 plans
 
 Plans:
 
-- [ ] 02-01: Implement MemoNode custom component with local edit state, parchment styling stub, and keyboard shortcut handling (Enter/Shift+Enter/Escape/stopPropagation)
-- [ ] 02-02: Implement canvas double-click handler to create memos at cursor position and wire drag repositioning via useMemoStore
+- [ ] 02-01-PLAN.md — Create MemoNode type definitions, MemoNode component (display/edit modes, keyboard handling, auto-resize), and register in NODE_TYPES
+- [ ] 02-02-PLAN.md — Wire MemoCanvas with useNodesState, double-click-to-create handler, node double-click re-edit, drag repositioning, and browser verification
 
 ### Phase 3: Persistence
 
