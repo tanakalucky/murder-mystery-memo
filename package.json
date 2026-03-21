@@ -7,6 +7,7 @@
     "build": "vite build",
     "check": "bun typecheck && bun run build",
     "claude:copy": "bun run scripts/copy-claude-config.ts",
+    "deploy": "wrangler deploy",
     "dev": "vite",
     "format": "oxfmt .",
     "lint": "oxlint --type-aware --fix",
@@ -55,6 +56,7 @@
     "typescript": "5.9.3",
     "vite": "8.0.1",
     "vitest": "^4.1.0",
-    "vitest-browser-react": "^2.1.0"
+    "vitest-browser-react": "^2.1.0",
+    "wrangler": "^4.76.0"
   }
 }
