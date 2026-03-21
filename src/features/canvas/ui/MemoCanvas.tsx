@@ -1,5 +1,5 @@
 import { ReactFlow, useNodesState, useReactFlow } from "@xyflow/react";
-import { useCallback, useEffect, useRef } from "react";
+import { forwardRef, useCallback, useEffect, useImperativeHandle, useRef } from "react";
 
 import type { MemoNode } from "../model/memo-node";
 import { NODE_TYPES } from "../model/node-types";
@@ -10,7 +10,9 @@ const CARD_HALF_HEIGHT = 20; // カード初期高さの近似半分
 const OVERLAP_THRESHOLD = 20; // 同一位置判定の距離（px）
 const OVERLAP_OFFSET = 20; // 重複時のオフセット（px）
 
-export const MemoCanvas = () => {
+export type MemoCanvasHandle = { reset: () => void };
+
+export const MemoCanvas = forwardRef<MemoCanvasHandle, Record<string, never>>((_props, ref) => {
   const [nodes, setNodes, onNodesChange] = useNodesState<MemoNode>(loadMemos());
   const { screenToFlowPosition, updateNodeData } = useReactFlow<MemoNode>();
 
@@ -83,6 +85,13 @@ export const MemoCanvas = () => {
     [updateNodeData],
   );
 
+  const handleReset = useCallback(() => {
+    setNodes([]);
+    saveMemos([]);
+  }, [setNodes]);
+
+  useImperativeHandle(ref, () => ({ reset: handleReset }), [handleReset]);
+
   return (
     <ReactFlow
       nodes={nodes}
@@ -98,4 +107,4 @@ export const MemoCanvas = () => {
       // zoomOnScroll はデフォルト true — CANVAS-03 を満たす
     />
   );
-};
+});
