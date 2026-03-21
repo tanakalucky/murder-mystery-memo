@@ -1,8 +1,4 @@
-import { ClerkProvider, useAuth } from "@clerk/react";
-
 import "./styles/index.css";
-import { ConvexReactClient } from "convex/react";
-import { ConvexProviderWithClerk } from "convex/react-clerk";
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 
@@ -10,17 +6,13 @@ import { ErrorBoundary } from "@/app/providers/ErrorBoundary";
 
 import { Routes } from "./routes";
 
-const convex = new ConvexReactClient(import.meta.env.VITE_CONVEX_URL as string);
-const publishableKey = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY as string;
+const rootElement = document.getElementById("root");
+if (rootElement === null) throw new Error("Root element not found");
 
-createRoot(document.getElementById("root")!).render(
+createRoot(rootElement).render(
   <StrictMode>
     <ErrorBoundary>
-      <ClerkProvider publishableKey={publishableKey}>
-        <ConvexProviderWithClerk client={convex} useAuth={useAuth}>
-          <Routes />
-        </ConvexProviderWithClerk>
-      </ClerkProvider>
+      <Routes />
     </ErrorBoundary>
   </StrictMode>,
 );
