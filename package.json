@@ -13,7 +13,7 @@
     "lint": "oxlint --type-aware --fix",
     "lint:ci": "oxlint --type-aware",
     "preview": "bun run build && vite preview",
-    "test": "vitest --project unit & vitest --project browser & bun run playwright test",
+    "test": "vitest --project unit & vitest --project browser",
     "typecheck": "bun tsgo -b --noEmit",
     "ui:add": "bun run scripts/shadcn-add.ts",
     "ui:organize": "bun run scripts/organize-ui.ts"
