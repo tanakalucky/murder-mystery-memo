@@ -1,4 +1,8 @@
 import type { NodeTypes } from "@xyflow/react";
 
-// Phase 2 でカスタムメモノードを追加予定。Phase 1 では空オブジェクト。
-export const NODE_TYPES = {} satisfies NodeTypes;
+import { MemoNode } from "../ui/MemoNode";
+
+// NODE_TYPES はモジュールレベルの定数として定義（インライン定義するとノードが毎レンダーでリマウントされる）
+export const NODE_TYPES = {
+  memo: MemoNode,
+} satisfies NodeTypes;
