@@ -32,7 +32,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 3. User can scroll to zoom in and out on the canvas
 4. No console errors from dead Convex/Clerk/Cloudflare packages
 
-**Plans**: TBD
+**Plans**: 2 plans
 
 Plans:
 
