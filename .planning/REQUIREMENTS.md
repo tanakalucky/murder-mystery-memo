@@ -16,13 +16,13 @@ Requirements for initial release. Each maps to roadmap phases.
 ### Memo
 
 - [ ] **MEMO-01**: キャンバス上をダブルクリックしてメモを追加できる
-- [ ] **MEMO-02**: メモ生成と同時に編集状態になりテキスト入力にフォーカスが当たる
-- [ ] **MEMO-03**: Enter で改行できる
-- [ ] **MEMO-04**: Shift+Enter で編集を確定できる
-- [ ] **MEMO-05**: Escape で編集をキャンセルできる（新規メモは破棄）
-- [ ] **MEMO-06**: 既存メモをダブルクリックして再編集できる
-- [ ] **MEMO-07**: メモ外をクリックして編集を確定できる
-- [ ] **MEMO-08**: メモをドラッグで自由移動できる
+- [x] **MEMO-02**: メモ生成と同時に編集状態になりテキスト入力にフォーカスが当たる
+- [x] **MEMO-03**: Enter で改行できる
+- [x] **MEMO-04**: Shift+Enter で編集を確定できる
+- [x] **MEMO-05**: Escape で編集をキャンセルできる（新規メモは破棄）
+- [x] **MEMO-06**: 既存メモをダブルクリックして再編集できる
+- [x] **MEMO-07**: メモ外をクリックして編集を確定できる
+- [x] **MEMO-08**: メモをドラッグで自由移動できる
 
 ### Persistence
 
@@ -80,13 +80,13 @@ Which phases cover which requirements. Updated during roadmap creation.
 | CANVAS-02   | Phase 1 | Complete |
 | CANVAS-03   | Phase 1 | Complete |
 | MEMO-01     | Phase 2 | Pending  |
-| MEMO-02     | Phase 2 | Pending  |
-| MEMO-03     | Phase 2 | Pending  |
-| MEMO-04     | Phase 2 | Pending  |
-| MEMO-05     | Phase 2 | Pending  |
-| MEMO-06     | Phase 2 | Pending  |
-| MEMO-07     | Phase 2 | Pending  |
-| MEMO-08     | Phase 2 | Pending  |
+| MEMO-02     | Phase 2 | Complete |
+| MEMO-03     | Phase 2 | Complete |
+| MEMO-04     | Phase 2 | Complete |
+| MEMO-05     | Phase 2 | Complete |
+| MEMO-06     | Phase 2 | Complete |
+| MEMO-07     | Phase 2 | Complete |
+| MEMO-08     | Phase 2 | Complete |
 | PERS-01     | Phase 3 | Pending  |
 | PERS-02     | Phase 3 | Pending  |
 | RESET-01    | Phase 4 | Pending  |

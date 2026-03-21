@@ -55,7 +55,7 @@ Plans:
 
 Plans:
 
-- [ ] 02-01-PLAN.md — Create MemoNode type definitions, MemoNode component (display/edit modes, keyboard handling, auto-resize), and register in NODE_TYPES
+- [x] 02-01-PLAN.md — Create MemoNode type definitions, MemoNode component (display/edit modes, keyboard handling, auto-resize), and register in NODE_TYPES
 - [ ] 02-02-PLAN.md — Wire MemoCanvas with useNodesState, double-click-to-create handler, node double-click re-edit, drag repositioning, and browser verification
 
 ### Phase 3: Persistence
@@ -101,6 +101,6 @@ Phases execute in numeric order: 1 → 2 → 3 → 4
 | Phase                | Plans Complete | Status      | Completed  |
 | -------------------- | -------------- | ----------- | ---------- |
 | 1. Canvas Foundation | 2/2            | Complete    | 2026-03-21 |
-| 2. Memo Interaction  | 0/2            | Not started | -          |
+| 2. Memo Interaction  | 1/2 | In Progress|  |
 | 3. Persistence       | 0/1            | Not started | -          |
 | 4. Reset and Visual  | 0/2            | Not started | -          |
