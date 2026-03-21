@@ -26,19 +26,19 @@ Requirements for initial release. Each maps to roadmap phases.
 
 ### Persistence
 
-- [ ] **PERS-01**: メモデータ（内容・位置）をlocalStorageに保存できる
-- [ ] **PERS-02**: ページリロード時にlocalStorageからメモを復元できる
+- [x] **PERS-01**: メモデータ（内容・位置）をlocalStorageに保存できる
+- [x] **PERS-02**: ページリロード時にlocalStorageからメモを復元できる
 
 ### Reset
 
-- [ ] **RESET-01**: リセットボタンで全メモを一括削除できる
-- [ ] **RESET-02**: リセット実行前に確認ダイアログが表示される
+- [x] **RESET-01**: リセットボタンで全メモを一括削除できる
+- [x] **RESET-02**: リセット実行前に確認ダイアログが表示される
 
 ### Visual
 
 - [ ] **VIS-01**: ダークノワール調カラーパレットが適用されている
 - [ ] **VIS-02**: 指定フォント（Playfair Display, Noto Serif JP, Noto Sans JP）が適用されている
-- [ ] **VIS-03**: リセットボタンが右上に固定表示されている
+- [x] **VIS-03**: リセットボタンが右上に固定表示されている
 
 ## v2 Requirements
 
@@ -87,13 +87,13 @@ Which phases cover which requirements. Updated during roadmap creation.
 | MEMO-06     | Phase 2 | Complete |
 | MEMO-07     | Phase 2 | Complete |
 | MEMO-08     | Phase 2 | Complete |
-| PERS-01     | Phase 3 | Pending  |
-| PERS-02     | Phase 3 | Pending  |
-| RESET-01    | Phase 4 | Pending  |
-| RESET-02    | Phase 4 | Pending  |
+| PERS-01     | Phase 3 | Complete |
+| PERS-02     | Phase 3 | Complete |
+| RESET-01    | Phase 4 | Complete |
+| RESET-02    | Phase 4 | Complete |
 | VIS-01      | Phase 4 | Pending  |
 | VIS-02      | Phase 4 | Pending  |
-| VIS-03      | Phase 4 | Pending  |
+| VIS-03      | Phase 4 | Complete |
 
 **Coverage:**
 

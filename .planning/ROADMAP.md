@@ -90,7 +90,7 @@ Plans:
 
 Plans:
 
-- [ ] 04-01-PLAN.md — Install shadcn AlertDialog, create ResetButton feature slice with confirmation dialog, expose MemoCanvas reset via useImperativeHandle, wire into CanvasPage with fixed-position overlay
+- [x] 04-01-PLAN.md — Install shadcn AlertDialog, create ResetButton feature slice with confirmation dialog, expose MemoCanvas reset via useImperativeHandle, wire into CanvasPage with fixed-position overlay
 - [ ] 04-02-PLAN.md — Install font packages, define noir color palette as Tailwind custom tokens, apply noir styling to MemoNode/MemoCanvas/CanvasPage/ResetButton, hide ReactFlow chrome
 
 ## Progress
@@ -103,4 +103,4 @@ Phases execute in numeric order: 1 → 2 → 3 → 4
 | 1. Canvas Foundation | 2/2            | Complete    | 2026-03-21 |
 | 2. Memo Interaction  | 2/2            | Complete    | 2026-03-21 |
 | 3. Persistence       | 0/1            | Not started | -          |
-| 4. Reset and Visual  | 0/2            | Not started | -          |
+| 4. Reset and Visual  | 1/2 | In Progress|  |
