@@ -74,34 +74,34 @@ Explicitly excluded. Documented to prevent scope creep.
 
 Which phases cover which requirements. Updated during roadmap creation.
 
-| Requirement | Phase | Status  |
-| ----------- | ----- | ------- |
-| CANVAS-01   | —     | Pending |
-| CANVAS-02   | —     | Pending |
-| CANVAS-03   | —     | Pending |
-| MEMO-01     | —     | Pending |
-| MEMO-02     | —     | Pending |
-| MEMO-03     | —     | Pending |
-| MEMO-04     | —     | Pending |
-| MEMO-05     | —     | Pending |
-| MEMO-06     | —     | Pending |
-| MEMO-07     | —     | Pending |
-| MEMO-08     | —     | Pending |
-| PERS-01     | —     | Pending |
-| PERS-02     | —     | Pending |
-| RESET-01    | —     | Pending |
-| RESET-02    | —     | Pending |
-| VIS-01      | —     | Pending |
-| VIS-02      | —     | Pending |
-| VIS-03      | —     | Pending |
+| Requirement | Phase   | Status  |
+| ----------- | ------- | ------- |
+| CANVAS-01   | Phase 1 | Pending |
+| CANVAS-02   | Phase 1 | Pending |
+| CANVAS-03   | Phase 1 | Pending |
+| MEMO-01     | Phase 2 | Pending |
+| MEMO-02     | Phase 2 | Pending |
+| MEMO-03     | Phase 2 | Pending |
+| MEMO-04     | Phase 2 | Pending |
+| MEMO-05     | Phase 2 | Pending |
+| MEMO-06     | Phase 2 | Pending |
+| MEMO-07     | Phase 2 | Pending |
+| MEMO-08     | Phase 2 | Pending |
+| PERS-01     | Phase 3 | Pending |
+| PERS-02     | Phase 3 | Pending |
+| RESET-01    | Phase 4 | Pending |
+| RESET-02    | Phase 4 | Pending |
+| VIS-01      | Phase 4 | Pending |
+| VIS-02      | Phase 4 | Pending |
+| VIS-03      | Phase 4 | Pending |
 
 **Coverage:**
 
 - v1 requirements: 18 total
-- Mapped to phases: 0
-- Unmapped: 18 ⚠️
+- Mapped to phases: 18
+- Unmapped: 0 ✓
 
 ---
 
 _Requirements defined: 2026-03-21_
-_Last updated: 2026-03-21 after initial definition_
+_Last updated: 2026-03-21 after roadmap creation_
