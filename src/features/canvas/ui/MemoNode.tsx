@@ -18,12 +18,13 @@ export const MemoNode = ({ id, data }: NodeProps<MemoNodeType>) => {
   }, [data.isEditing]);
 
   // コンテンツに応じてtextareaの高さを自動調整（D-05: スクロールバーなし）
+  // data.isEditing も依存に含め、編集モード再突入時に既存テキストの高さを反映する
   useEffect(() => {
     if (textareaRef.current) {
       textareaRef.current.style.height = "auto";
       textareaRef.current.style.height = `${textareaRef.current.scrollHeight}px`;
     }
-  }, [data.content]);
+  }, [data.content, data.isEditing]);
 
   // D-14: stopPropagation でReactFlowへのキーイベント伝播を防止
   const handleKeyDown = useCallback(
