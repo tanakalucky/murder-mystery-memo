@@ -51,6 +51,7 @@ bun run lint
 bun run lint && bun run test
 
 <!-- GSD:project-start source:PROJECT.md -->
+
 ## Project
 
 **Murder Mystery Memo**
@@ -69,17 +70,23 @@ bun run lint && bun run test
 <!-- GSD:project-end -->
 
 <!-- GSD:stack-start source:codebase/STACK.md -->
+
 ## Technology Stack
 
 ## Languages
+
 - TypeScript 5.9.3 - All source code, build configuration, and scripts
 - JSX/TSX - React components throughout the application
 - JavaScript - Some configuration files and scripts
+
 ## Runtime
+
 - Node.js (no specific version enforced; Bun used as package manager)
 - Bun - Primary runtime and package manager
 - Lockfile: `bun.lockb` (implied through bun usage)
+
 ## Frameworks
+
 - React 19.2.4 - UI framework and component system
 - Vite 8.0.1 - Build tool and development server
 - TypeScript 5.9.3 - Static type checking
@@ -100,14 +107,18 @@ bun run lint && bun run test
 - ts-pattern 5.9.0 - Pattern matching for TypeScript
 - react-error-boundary 6.1.1 - Error boundary component wrapper
 - @fontsource-variable/noto-sans 5.2.10 - Variable font import
+
 ## Testing
+
 - vitest 4.1.0 - Vitest testing framework (unit and browser projects)
 - @vitest/ui 4.1.0 - Visual UI for test results
 - @vitest/browser-playwright 4.1.0 - Browser testing provider
 - vitest-browser-react 2.1.0 - React testing utilities for vitest browser
 - @playwright/test 1.58.2 - Playwright end-to-end testing
 - playwright 1.58.2 - Playwright browser automation library
+
 ## Build & Development Tools
+
 - oxlint 1.56.0 - Rust-based linter (replaces ESLint)
 - oxfmt 0.41.0 - Rust-based code formatter
 - oxlint-tsgolint 0.17.1 - TypeScript/Go-specific linting rules
@@ -120,7 +131,9 @@ bun run lint && bun run test
 - wrangler 4.76.0 - Cloudflare CLI for Workers deployment
 - lefthook 2.1.4 - Git hook manager
 - tw-animate-css 1.4.0 - Tailwind animation utilities
+
 ## Configuration
+
 - Managed via dotenvx with `.env.dev` and `.env.prod` files
 - Key env vars: `VITE_CONVEX_URL`, `VITE_CLERK_PUBLISHABLE_KEY`, `CLERK_JWT_ISSUER_DOMAIN`
 - `vite.config.ts` - Vite build configuration
@@ -128,8 +141,11 @@ bun run lint && bun run test
 - `tsconfig.app.json` - Main TypeScript configuration
 - `playwright.config.ts` - E2E test configuration
 - `wrangler.jsonc` - Cloudflare Workers configuration
+
 ## Package Scripts
+
 ## Platform Requirements
+
 - Bun runtime (primary package manager)
 - Node.js compatible environment (for wrangler and testing)
 - Cloudflare account (for Workers deployment)
@@ -138,13 +154,17 @@ bun run lint && bun run test
 - Cloudflare Workers deployment platform
 - Clerk authentication service
 - Convex backend service
+
 ## Key Architectural Decisions
+
 <!-- GSD:stack-end -->
 
 <!-- GSD:conventions-start source:CONVENTIONS.md -->
+
 ## Conventions
 
 ## Naming Patterns
+
 - Component files: PascalCase (e.g., `AddTodo.tsx`, `TodoItem.tsx`)
 - Utility/hook files: camelCase (e.g., `use-todo-mutation.ts`, `use-todo-query.ts`)
 - Type/interface files: camelCase with descriptive names (e.g., `form-state.ts`, `todo.ts`)
@@ -160,7 +180,9 @@ bun run lint && bun run test
 - Interfaces: PascalCase (e.g., `Props`, `FormState`, `FallbackProps`)
 - Union/complex types: PascalCase (e.g., `ReturnType`)
 - Generic type parameters: Single uppercase letters or descriptive names (e.g., `FormState`, `T`)
+
 ## Code Style
+
 - Tool: `oxfmt` (Rust-based formatter) - configured for format command
 - Linting: `oxlint --type-aware` (with automatic fix via `--fix` flag)
 - Line width: Standard (enforced by oxfmt, typically 100-120 chars)
@@ -170,21 +192,29 @@ bun run lint && bun run test
 - No fallthrough cases in switch statements
 - No unchecked side effect imports
 - `type-aware` linting enabled for advanced checks
+
 ## Import Organization
+
 - `@/*` → `src/*` - Use for cross-slice/cross-layer imports
 - Within a feature slice (e.g., `features/todo/`), use relative paths only to avoid barrel file performance issues
 - Example: `import { useAuth } from "../model/useAuth"` (not `@/features/auth`)
+
 ## Error Handling
+
 - Try-catch blocks around API calls and mutations
 - Error messages returned as part of form state (e.g., `{ error: string }`)
 - Errors logged with `console.error()` including context description
 - Error boundaries for component-level error catching
+
 ## Logging
+
 - `console.error()` for error conditions only
 - Include descriptive context message alongside error object
 - Example: `console.error("TODOの追加に失敗しました", error)`
 - Reserved for error boundaries and significant failures, not debug logging
+
 ## Comments
+
 - Complex error handling logic
 - Non-obvious business logic (especially related to form state management)
 - Context about why a particular approach was chosen
@@ -192,36 +222,46 @@ bun run lint && bun run test
 - Not extensively used in this codebase
 - Type annotations preferred over JSDoc comments
 - Interfaces and types are self-documenting
+
 ## Function Design
+
 - Props destructured in function signature for React components
 - Named parameters for functions (avoid long parameter lists)
 - Use of typed objects for related parameters
 - Components return JSX (or `null`/`undefined` for conditional rendering)
 - Hooks return objects with named properties (e.g., `{ addTodo, editTodo, deleteTodo }`)
 - Form actions return state objects with error property (e.g., `{ error?: string }`)
+
 ## Module Design
+
 - Each slice has a `index.ts` file (Public API)
 - Public API re-exports only public interfaces/components
 - Internal implementation files not directly imported from outside
 - Used at slice level (`features/auth/index.ts`) for public API
 - NOT used at segment level (`features/auth/ui/index.ts`) to avoid performance issues
 - Each UI component/utility has own `index.ts` in shared layer
+
 ## TypeScript-Specific
+
 - `noEmit: true` - TypeScript is type-check only, not compiled
 - `allowImportingTsExtensions: true` - Can import `.ts` files directly
 - `noUncheckedSideEffectImports: true` - Prevents importing modules with side effects without explicit imports
 <!-- GSD:conventions-end -->
 
 <!-- GSD:architecture-start source:ARCHITECTURE.md -->
+
 ## Architecture
 
 ## Pattern Overview
+
 - Layered architecture with 7 layers ordered by responsibility (app → pages → widgets → features → entities → shared)
 - Business domain slicing within each layer
 - Strict dependency flow enforced (upper layers depend only on lower layers)
 - Public API pattern via `index.ts` for controlled exports
 - Cross-slice dependencies prohibited within same layer
+
 ## Layers
+
 - Purpose: Application bootstrap, global configuration, and entry point
 - Location: `src/app/`
 - Contains: React root setup, provider hierarchy, routing configuration, global styles, error boundaries
@@ -247,12 +287,16 @@ bun run lint && bun run test
 - Contains: UI primitives (Button, Input, Field), library functions (cn utility), API setup
 - Depends on: Only external dependencies
 - Used by: All layers above
+
 ## Data Flow
+
 - **Component State**: Local React state via `useState` for UI-only state (isEditing, form errors)
 - **Server State**: Convex provides automatic sync via `useQuery` and `useMutation` hooks
 - **Form State**: Server-side validation via React's `useActionState` hook with FormState interface
 - **Auth State**: Clerk manages user authentication state, propagated via `useAuth()` hook
+
 ## Key Abstractions
+
 - Purpose: Encapsulates all todo-related functionality (query, mutations, UI)
 - Examples: `src/features/todo/`
 - Pattern: Feature exports AddTodo and TodoItem UI components via barrel file
@@ -268,7 +312,9 @@ bun run lint && bun run test
 - Purpose: User session management and route protection
 - Pattern: ClerkProvider wraps ConvexProviderWithClerk which handles auth state
 - Location: `src/app/index.tsx` (provider setup)
+
 ## Entry Points
+
 - Location: `src/app/index.tsx`
 - Triggers: Browser loads HTML referencing this script
 - Responsibilities: Creates React root, mounts provider hierarchy (Clerk → Convex), renders Routes component
@@ -278,12 +324,16 @@ bun run lint && bun run test
 - Location: `src/pages/home/ui/HomePage.tsx`
 - Triggers: Rendered by Routes when user is authenticated
 - Responsibilities: Fetches todos via useTodoQuery, renders header and todo list, handles loading states
+
 ## Error Handling
+
 - **Global Error Boundary**: `src/app/providers/ErrorBoundary/ErrorBoundary.tsx` catches React rendering errors, displays error details and recovery button
 - **Form Errors**: Form action handlers catch exceptions and return FormState with error string for inline display
 - **API Errors**: Convex hooks handle errors implicitly; component catch blocks convert to user-facing messages
 - **Logging**: Error Boundary logs to console.error for debugging
+
 ## Cross-Cutting Concerns
+
 - Console-based via console.error in error boundaries and action handlers
 - No external logging service integrated
 - Form input validation via server-side useActionState handlers
@@ -298,21 +348,26 @@ bun run lint && bun run test
 <!-- GSD:architecture-end -->
 
 <!-- GSD:workflow-start source:GSD defaults -->
+
 ## GSD Workflow Enforcement
 
 Before using Edit, Write, or other file-changing tools, start work through a GSD command so planning artifacts and execution context stay in sync.
 
 Use these entry points:
+
 - `/gsd:quick` for small fixes, doc updates, and ad-hoc tasks
 - `/gsd:debug` for investigation and bug fixing
 - `/gsd:execute-phase` for planned phase work
 
 Do not make direct repo edits outside a GSD workflow unless the user explicitly asks to bypass it.
+
 <!-- GSD:workflow-end -->
 
 <!-- GSD:profile-start -->
+
 ## Developer Profile
 
 > Profile not yet configured. Run `/gsd:profile-user` to generate your developer profile.
 > This section is managed by `generate-claude-profile` -- do not edit manually.
+
 <!-- GSD:profile-end -->
