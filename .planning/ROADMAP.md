@@ -86,12 +86,12 @@ Plans:
 3. Confirming reset clears all memos from the canvas and from localStorage
 4. The canvas background, memo cards, fonts, and UI text all match the specified noir color palette and typography (Playfair Display, Noto Serif JP, Noto Sans JP)
 
-**Plans**: TBD
+**Plans**: 2 plans
 
 Plans:
 
-- [ ] 04-01: Implement ResetButton feature (shadcn AlertDialog confirmation + setNodes([]) + localStorage clear) with fixed-position layout
-- [ ] 04-02: Apply full noir color palette to canvas, MemoNode, and UI chrome; integrate Playfair Display and Noto Serif JP fonts; verify visual output matches design spec
+- [ ] 04-01-PLAN.md — Install shadcn AlertDialog, create ResetButton feature slice with confirmation dialog, expose MemoCanvas reset via useImperativeHandle, wire into CanvasPage with fixed-position overlay
+- [ ] 04-02-PLAN.md — Install font packages, define noir color palette as Tailwind custom tokens, apply noir styling to MemoNode/MemoCanvas/CanvasPage/ResetButton, hide ReactFlow chrome
 
 ## Progress
 
