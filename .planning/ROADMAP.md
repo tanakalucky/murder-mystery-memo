@@ -72,7 +72,7 @@ Plans:
 
 Plans:
 
-- [ ] 03-01-PLAN.md — Create storage.ts (loadMemos/saveMemos with valibot schema validation); wire useEffect([nodes]) save and loadMemos() initial state in MemoCanvas
+- [x] 03-01-PLAN.md — Create storage.ts (loadMemos/saveMemos with valibot schema validation); wire useEffect([nodes]) save and loadMemos() initial state in MemoCanvas
 
 ### Phase 4: Reset and Visual Design
 
