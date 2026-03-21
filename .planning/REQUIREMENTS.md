@@ -36,8 +36,8 @@ Requirements for initial release. Each maps to roadmap phases.
 
 ### Visual
 
-- [ ] **VIS-01**: ダークノワール調カラーパレットが適用されている
-- [ ] **VIS-02**: 指定フォント（Playfair Display, Noto Serif JP, Noto Sans JP）が適用されている
+- [x] **VIS-01**: ダークノワール調カラーパレットが適用されている
+- [x] **VIS-02**: 指定フォント（Playfair Display, Noto Serif JP, Noto Sans JP）が適用されている
 - [x] **VIS-03**: リセットボタンが右上に固定表示されている
 
 ## v2 Requirements
@@ -91,8 +91,8 @@ Which phases cover which requirements. Updated during roadmap creation.
 | PERS-02     | Phase 3 | Complete |
 | RESET-01    | Phase 4 | Complete |
 | RESET-02    | Phase 4 | Complete |
-| VIS-01      | Phase 4 | Pending  |
-| VIS-02      | Phase 4 | Pending  |
+| VIS-01      | Phase 4 | Complete |
+| VIS-02      | Phase 4 | Complete |
 | VIS-03      | Phase 4 | Complete |
 
 **Coverage:**

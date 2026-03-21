@@ -16,7 +16,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 - [x] **Phase 1: Canvas Foundation** - Remove dead dependencies and establish a full-viewport @xyflow/react canvas (completed 2026-03-21)
 - [x] **Phase 2: Memo Interaction** - Add, edit, drag, and keyboard-control memos on the canvas (completed 2026-03-21)
 - [ ] **Phase 3: Persistence** - Survive page reload with localStorage save and restore
-- [ ] **Phase 4: Reset and Visual Design** - Reset-all confirmation and complete noir aesthetic
+- [x] **Phase 4: Reset and Visual Design** - Reset-all confirmation and complete noir aesthetic (completed 2026-03-21)
 
 ## Phase Details
 
@@ -91,7 +91,7 @@ Plans:
 Plans:
 
 - [x] 04-01-PLAN.md — Install shadcn AlertDialog, create ResetButton feature slice with confirmation dialog, expose MemoCanvas reset via useImperativeHandle, wire into CanvasPage with fixed-position overlay
-- [ ] 04-02-PLAN.md — Install font packages, define noir color palette as Tailwind custom tokens, apply noir styling to MemoNode/MemoCanvas/CanvasPage/ResetButton, hide ReactFlow chrome
+- [x] 04-02-PLAN.md — Install font packages, define noir color palette as Tailwind custom tokens, apply noir styling to MemoNode/MemoCanvas/CanvasPage/ResetButton, hide ReactFlow chrome
 
 ## Progress
 
@@ -103,4 +103,4 @@ Phases execute in numeric order: 1 → 2 → 3 → 4
 | 1. Canvas Foundation | 2/2            | Complete    | 2026-03-21 |
 | 2. Memo Interaction  | 2/2            | Complete    | 2026-03-21 |
 | 3. Persistence       | 0/1            | Not started | -          |
-| 4. Reset and Visual  | 1/2 | In Progress|  |
+| 4. Reset and Visual  | 2/2 | Complete   | 2026-03-21 |
