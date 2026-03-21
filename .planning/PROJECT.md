@@ -21,12 +21,12 @@
 
 ### Active
 
-- [ ] キャンバス上をダブルクリックしてメモを追加できる
-- [ ] メモ生成と同時に編集状態になりフォーカスが当たる
-- [ ] Enter で改行、Shift+Enter で編集確定、Escape でキャンセル
-- [ ] 既存メモをダブルクリックして再編集できる
-- [ ] メモ外クリックで編集確定
-- [ ] メモをドラッグで自由移動できる
+- ✓ キャンバス上をダブルクリックしてメモを追加できる — Validated in Phase 02: Memo Interaction
+- ✓ メモ生成と同時に編集状態になりフォーカスが当たる — Validated in Phase 02: Memo Interaction
+- ✓ Enter で改行、Shift+Enter で編集確定、Escape でキャンセル — Validated in Phase 02: Memo Interaction
+- ✓ 既存メモをダブルクリックして再編集できる — Validated in Phase 02: Memo Interaction
+- ✓ メモ外クリックで編集確定 — Validated in Phase 02: Memo Interaction
+- ✓ メモをドラッグで自由移動できる — Validated in Phase 02: Memo Interaction
 - [ ] メモのデータ（内容・位置）をlocalStorageに永続化する
 - [ ] リセットボタンで全メモを一括削除できる（確認ダイアログ付き）
 - [ ] ダークノワール調のUI（指定カラーパレット・フォント適用）
@@ -46,7 +46,7 @@
 
 ### 現在の状態
 
-Phase 01完了 — Todoアプリのコードは完全削除済み。@xyflow/react v12によるフルビューポートキャンバスが動作中（パン・ズーム対応）。
+Phase 02完了 — MemoNodeカスタムノードでメモの追加・編集・配置が可能。ダブルクリック作成、表示/編集モード切替（Shift+Enter/Escape）、ドラッグ移動、textarea自動リサイズ対応。
 
 継続利用中の基盤:
 
