@@ -19,7 +19,7 @@ Requirements for initial release. Each maps to roadmap phases.
 - [x] **MEMO-02**: メモ生成と同時に編集状態になりテキスト入力にフォーカスが当たる
 - [x] **MEMO-03**: Enter で改行できる
 - [x] **MEMO-04**: Shift+Enter で編集を確定できる
-- [x] **MEMO-05**: Escape で編集をキャンセルできる（新規メモは破棄）
+- [x] **MEMO-05**: Escape で編集をキャンセルできる（空メモも保持 — D-12設計決定）
 - [x] **MEMO-06**: 既存メモをダブルクリックして再編集できる
 - [x] **MEMO-07**: メモ外をクリックして編集を確定できる
 - [x] **MEMO-08**: メモをドラッグで自由移動できる
