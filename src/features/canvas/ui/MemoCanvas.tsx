@@ -12,7 +12,7 @@ const OVERLAP_OFFSET = 20; // 重複時のオフセット（px）
 
 export type MemoCanvasHandle = { reset: () => void };
 
-export const MemoCanvas = forwardRef<MemoCanvasHandle, Record<string, never>>((_props, ref) => {
+export const MemoCanvas = forwardRef<MemoCanvasHandle, object>((_props, ref) => {
   const [nodes, setNodes, onNodesChange] = useNodesState<MemoNode>(loadMemos());
   const { screenToFlowPosition, updateNodeData } = useReactFlow<MemoNode>();
 
