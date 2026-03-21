@@ -68,11 +68,11 @@ Plans:
 1. After adding and repositioning memos, a page reload restores all memos with their correct content and positions
 2. If localStorage data is corrupt or missing, the app loads with an empty canvas instead of crashing
 
-**Plans**: TBD
+**Plans**: 1 plan
 
 Plans:
 
-- [ ] 03-01: Implement storage.ts (loadMemos/saveMemos with valibot schema validation and try/catch); wire useEffect([nodes]) sync in useMemoStore; seed initial state from loadMemos on mount
+- [ ] 03-01-PLAN.md — Create storage.ts (loadMemos/saveMemos with valibot schema validation); wire useEffect([nodes]) save and loadMemos() initial state in MemoCanvas
 
 ### Phase 4: Reset and Visual Design
 
@@ -101,6 +101,6 @@ Phases execute in numeric order: 1 → 2 → 3 → 4
 | Phase                | Plans Complete | Status      | Completed  |
 | -------------------- | -------------- | ----------- | ---------- |
 | 1. Canvas Foundation | 2/2            | Complete    | 2026-03-21 |
-| 2. Memo Interaction  | 2/2 | Complete   | 2026-03-21 |
+| 2. Memo Interaction  | 2/2            | Complete    | 2026-03-21 |
 | 3. Persistence       | 0/1            | Not started | -          |
 | 4. Reset and Visual  | 0/2            | Not started | -          |
