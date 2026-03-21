@@ -81,7 +81,7 @@ Each task was committed atomically:
 1. **Task 1: Install fonts, define noir palette and font families in index.css, hide ReactFlow chrome** - `4bd3032` (feat)
 2. **Task 2: Apply noir styling to MemoNode, MemoCanvas, CanvasPage, and ResetButton** - `5083e62` (feat)
 
-**Plan metadata:** (to be committed)
+**Plan metadata:** `ea6088a` (docs: complete plan)
 
 ## Files Created/Modified
 

@@ -1,106 +1,28 @@
 # Roadmap: Murder Mystery Memo
 
-## Overview
+## Milestones
 
-The project replaces an existing Todo/Convex/Clerk SPA with a canvas-based memo app for murder mystery games. Four phases deliver a complete, shippable product: first the canvas foundation (dependency cleanup + @xyflow/react setup), then the core memo interaction loop, then localStorage persistence, and finally the reset feature and full noir visual design. Each phase delivers a coherent, verifiable capability before the next begins.
+- ✅ **v1.0 MVP** — Phases 1-4 (shipped 2026-03-21)
 
 ## Phases
 
-**Phase Numbering:**
+<details>
+<summary>✅ v1.0 MVP (Phases 1-4) — SHIPPED 2026-03-21</summary>
 
-- Integer phases (1, 2, 3): Planned milestone work
-- Decimal phases (2.1, 2.2): Urgent insertions (marked with INSERTED)
+- [x] Phase 1: Canvas Foundation (2/2 plans) — completed 2026-03-21
+- [x] Phase 2: Memo Interaction (2/2 plans) — completed 2026-03-21
+- [x] Phase 3: Persistence (1/1 plan) — completed 2026-03-21
+- [x] Phase 4: Reset and Visual Design (2/2 plans) — completed 2026-03-21
 
-Decimal phases appear between their surrounding integers in numeric order.
+See: `.planning/milestones/v1.0-ROADMAP.md` for full details.
 
-- [x] **Phase 1: Canvas Foundation** - Remove dead dependencies and establish a full-viewport @xyflow/react canvas (completed 2026-03-21)
-- [x] **Phase 2: Memo Interaction** - Add, edit, drag, and keyboard-control memos on the canvas (completed 2026-03-21)
-- [ ] **Phase 3: Persistence** - Survive page reload with localStorage save and restore
-- [x] **Phase 4: Reset and Visual Design** - Reset-all confirmation and complete noir aesthetic (completed 2026-03-21)
-
-## Phase Details
-
-### Phase 1: Canvas Foundation
-
-**Goal**: A full-viewport canvas is running with the correct architecture in place
-**Depends on**: Nothing (first phase)
-**Requirements**: CANVAS-01, CANVAS-02, CANVAS-03
-**Success Criteria** (what must be TRUE):
-
-1. The app opens to a full-viewport dark canvas with no visible old Todo UI
-2. User can click-drag the canvas background to pan the view
-3. User can scroll to zoom in and out on the canvas
-4. No console errors from dead Convex/Clerk/Cloudflare packages
-
-**Plans**: 2 plans
-
-Plans:
-
-- [x] 01-01: Remove dead dependencies (Convex, Clerk, Cloudflare, next-themes) and clean up entry points
-- [x] 01-02: Install @xyflow/react and font packages; set up ReactFlowProvider and stable nodeTypes; render full-viewport canvas
-
-### Phase 2: Memo Interaction
-
-**Goal**: Users can create, edit, and reposition memos on the canvas
-**Depends on**: Phase 1
-**Requirements**: MEMO-01, MEMO-02, MEMO-03, MEMO-04, MEMO-05, MEMO-06, MEMO-07, MEMO-08
-**Success Criteria** (what must be TRUE):
-
-1. Double-clicking the canvas background creates a new memo at that position and immediately focuses the text input
-2. User can type freely; Enter inserts a newline, Shift+Enter confirms the edit, Escape cancels and discards a new memo
-3. Double-clicking an existing memo re-enters edit mode; clicking outside the memo confirms the edit
-4. User can drag any memo to reposition it freely on the canvas
-
-**Plans**: 2 plans
-
-Plans:
-
-- [x] 02-01-PLAN.md — Create MemoNode type definitions, MemoNode component (display/edit modes, keyboard handling, auto-resize), and register in NODE_TYPES
-- [x] 02-02-PLAN.md — Wire MemoCanvas with useNodesState, double-click-to-create handler, node double-click re-edit, drag repositioning, and browser verification
-
-### Phase 3: Persistence
-
-**Goal**: Memo data survives page reload
-**Depends on**: Phase 2
-**Requirements**: PERS-01, PERS-02
-**Success Criteria** (what must be TRUE):
-
-1. After adding and repositioning memos, a page reload restores all memos with their correct content and positions
-2. If localStorage data is corrupt or missing, the app loads with an empty canvas instead of crashing
-
-**Plans**: 1 plan
-
-Plans:
-
-- [x] 03-01-PLAN.md — Create storage.ts (loadMemos/saveMemos with valibot schema validation); wire useEffect([nodes]) save and loadMemos() initial state in MemoCanvas
-
-### Phase 4: Reset and Visual Design
-
-**Goal**: Users can reset all memos and the app looks and feels like a murder mystery detective's notebook
-**Depends on**: Phase 3
-**Requirements**: RESET-01, RESET-02, VIS-01, VIS-02, VIS-03
-**Success Criteria** (what must be TRUE):
-
-1. A reset button is fixed in the upper-right corner of the screen at all times
-2. Clicking reset shows a confirmation dialog before deleting; cancelling leaves memos intact
-3. Confirming reset clears all memos from the canvas and from localStorage
-4. The canvas background, memo cards, fonts, and UI text all match the specified noir color palette and typography (Playfair Display, Noto Serif JP, Noto Sans JP)
-
-**Plans**: 2 plans
-
-Plans:
-
-- [x] 04-01-PLAN.md — Install shadcn AlertDialog, create ResetButton feature slice with confirmation dialog, expose MemoCanvas reset via useImperativeHandle, wire into CanvasPage with fixed-position overlay
-- [x] 04-02-PLAN.md — Install font packages, define noir color palette as Tailwind custom tokens, apply noir styling to MemoNode/MemoCanvas/CanvasPage/ResetButton, hide ReactFlow chrome
+</details>
 
 ## Progress
 
-**Execution Order:**
-Phases execute in numeric order: 1 → 2 → 3 → 4
-
-| Phase                | Plans Complete | Status      | Completed  |
-| -------------------- | -------------- | ----------- | ---------- |
-| 1. Canvas Foundation | 2/2            | Complete    | 2026-03-21 |
-| 2. Memo Interaction  | 2/2            | Complete    | 2026-03-21 |
-| 3. Persistence       | 0/1            | Not started | -          |
-| 4. Reset and Visual  | 2/2            | Complete    | 2026-03-21 |
+| Phase                      | Milestone | Plans Complete | Status   | Completed  |
+| -------------------------- | --------- | -------------- | -------- | ---------- |
+| 1. Canvas Foundation       | v1.0      | 2/2            | Complete | 2026-03-21 |
+| 2. Memo Interaction        | v1.0      | 2/2            | Complete | 2026-03-21 |
+| 3. Persistence             | v1.0      | 1/1            | Complete | 2026-03-21 |
+| 4. Reset and Visual Design | v1.0      | 2/2            | Complete | 2026-03-21 |
