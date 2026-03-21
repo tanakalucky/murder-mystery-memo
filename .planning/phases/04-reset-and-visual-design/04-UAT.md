@@ -67,5 +67,9 @@ blocked: 0
   reason: "User reported: 削除モーダルで削除ボタン押下後にモーダルが消えません。削除処理が成功した時はモーダルも非表示にして欲しい"
   severity: major
   test: 1
-  artifacts: []
-  missing: []
+  root_cause: "AlertDialogAction が AlertDialogPrimitive.Close でラップされていない。AlertDialogCancel は Close でラップしているが、Action は plain Button のみのため、クリック時にダイアログが閉じない"
+  artifacts:
+  - path: "src/shared/ui/AlertDialog/AlertDialog.tsx"
+    issue: "AlertDialogAction が AlertDialogPrimitive.Close を使用していない"
+    missing:
+  - "AlertDialogAction を AlertDialogPrimitive.Close でラップし、AlertDialogCancel と同様のパターンにする"
