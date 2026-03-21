@@ -15,7 +15,7 @@ Requirements for initial release. Each maps to roadmap phases.
 
 ### Memo
 
-- [ ] **MEMO-01**: キャンバス上をダブルクリックしてメモを追加できる
+- [x] **MEMO-01**: キャンバス上をダブルクリックしてメモを追加できる
 - [x] **MEMO-02**: メモ生成と同時に編集状態になりテキスト入力にフォーカスが当たる
 - [x] **MEMO-03**: Enter で改行できる
 - [x] **MEMO-04**: Shift+Enter で編集を確定できる
@@ -79,7 +79,7 @@ Which phases cover which requirements. Updated during roadmap creation.
 | CANVAS-01   | Phase 1 | Complete |
 | CANVAS-02   | Phase 1 | Complete |
 | CANVAS-03   | Phase 1 | Complete |
-| MEMO-01     | Phase 2 | Pending  |
+| MEMO-01     | Phase 2 | Complete |
 | MEMO-02     | Phase 2 | Complete |
 | MEMO-03     | Phase 2 | Complete |
 | MEMO-04     | Phase 2 | Complete |

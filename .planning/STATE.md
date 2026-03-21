@@ -3,13 +3,13 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: unknown
-stopped_at: Completed 02-memo-interaction/02-01-PLAN.md
-last_updated: "2026-03-21T06:51:34.089Z"
+stopped_at: Completed 02-memo-interaction/02-02-PLAN.md
+last_updated: "2026-03-21T07:00:07.005Z"
 progress:
   total_phases: 4
-  completed_phases: 1
+  completed_phases: 2
   total_plans: 4
-  completed_plans: 3
+  completed_plans: 4
 ---
 
 # Project State
@@ -49,6 +49,7 @@ _Updated after each plan completion_
 | Phase 01-canvas-foundation P01 | 2 | 2 tasks | 10 files |
 | Phase 01-canvas-foundation P02 | 2 | 2 tasks | 5 files |
 | Phase 02-memo-interaction P01 | 2min | 2 tasks | 3 files |
+| Phase 02-memo-interaction P02 | 3min | 2 tasks | 2 files |
 
 ## Accumulated Context
 
@@ -69,6 +70,8 @@ Recent decisions affecting current work:
 - [Phase 01-canvas-foundation]: @xyflow/react/dist/base.css imported as first CSS import to avoid Tailwind preflight conflicts
 - [Phase 02-memo-interaction]: MemoNodeData defined as type with index signature to satisfy ReactFlow Record<string,unknown> constraint
 - [Phase 02-memo-interaction]: MemoNode type aliased as MemoNodeType on import to avoid naming conflict with component export
+- [Phase 02-memo-interaction]: CARD_HALF_WIDTH=96, CARD_HALF_HEIGHT=20 for centering memo on click; OVERLAP_THRESHOLD=20 for same-position detection
+- [Phase 02-memo-interaction]: Added data.isEditing to textarea resize useEffect deps to fix multi-line content height on edit re-entry
 
 ### Pending Todos
 
@@ -82,6 +85,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-21T06:51:34.087Z
-Stopped at: Completed 02-memo-interaction/02-01-PLAN.md
+Last session: 2026-03-21T07:00:07.002Z
+Stopped at: Completed 02-memo-interaction/02-02-PLAN.md
 Resume file: None

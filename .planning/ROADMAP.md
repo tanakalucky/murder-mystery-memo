@@ -14,7 +14,7 @@ The project replaces an existing Todo/Convex/Clerk SPA with a canvas-based memo 
 Decimal phases appear between their surrounding integers in numeric order.
 
 - [x] **Phase 1: Canvas Foundation** - Remove dead dependencies and establish a full-viewport @xyflow/react canvas (completed 2026-03-21)
-- [ ] **Phase 2: Memo Interaction** - Add, edit, drag, and keyboard-control memos on the canvas
+- [x] **Phase 2: Memo Interaction** - Add, edit, drag, and keyboard-control memos on the canvas (completed 2026-03-21)
 - [ ] **Phase 3: Persistence** - Survive page reload with localStorage save and restore
 - [ ] **Phase 4: Reset and Visual Design** - Reset-all confirmation and complete noir aesthetic
 
@@ -56,7 +56,7 @@ Plans:
 Plans:
 
 - [x] 02-01-PLAN.md — Create MemoNode type definitions, MemoNode component (display/edit modes, keyboard handling, auto-resize), and register in NODE_TYPES
-- [ ] 02-02-PLAN.md — Wire MemoCanvas with useNodesState, double-click-to-create handler, node double-click re-edit, drag repositioning, and browser verification
+- [x] 02-02-PLAN.md — Wire MemoCanvas with useNodesState, double-click-to-create handler, node double-click re-edit, drag repositioning, and browser verification
 
 ### Phase 3: Persistence
 
@@ -101,6 +101,6 @@ Phases execute in numeric order: 1 → 2 → 3 → 4
 | Phase                | Plans Complete | Status      | Completed  |
 | -------------------- | -------------- | ----------- | ---------- |
 | 1. Canvas Foundation | 2/2            | Complete    | 2026-03-21 |
-| 2. Memo Interaction  | 1/2 | In Progress|  |
+| 2. Memo Interaction  | 2/2 | Complete   | 2026-03-21 |
 | 3. Persistence       | 0/1            | Not started | -          |
 | 4. Reset and Visual  | 0/2            | Not started | -          |
