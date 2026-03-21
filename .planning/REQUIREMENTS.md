@@ -9,7 +9,7 @@ Requirements for initial release. Each maps to roadmap phases.
 
 ### Canvas
 
-- [ ] **CANVAS-01**: @xyflow/react によるビューポート全画面キャンバスが表示される
+- [x] **CANVAS-01**: @xyflow/react によるビューポート全画面キャンバスが表示される
 - [ ] **CANVAS-02**: キャンバスをドラッグでパンできる
 - [ ] **CANVAS-03**: スクロールでズームイン・アウトできる
 
@@ -76,7 +76,7 @@ Which phases cover which requirements. Updated during roadmap creation.
 
 | Requirement | Phase   | Status  |
 | ----------- | ------- | ------- |
-| CANVAS-01   | Phase 1 | Pending |
+| CANVAS-01   | Phase 1 | Complete |
 | CANVAS-02   | Phase 1 | Pending |
 | CANVAS-03   | Phase 1 | Pending |
 | MEMO-01     | Phase 2 | Pending |

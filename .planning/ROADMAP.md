@@ -36,7 +36,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 
 Plans:
 
-- [ ] 01-01: Remove dead dependencies (Convex, Clerk, Cloudflare, next-themes) and clean up entry points
+- [x] 01-01: Remove dead dependencies (Convex, Clerk, Cloudflare, next-themes) and clean up entry points
 - [ ] 01-02: Install @xyflow/react and font packages; set up ReactFlowProvider and stable nodeTypes; render full-viewport canvas
 
 ### Phase 2: Memo Interaction
@@ -100,7 +100,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4
 
 | Phase                | Plans Complete | Status      | Completed |
 | -------------------- | -------------- | ----------- | --------- |
-| 1. Canvas Foundation | 0/2            | Not started | -         |
+| 1. Canvas Foundation | 1/2 | In Progress|  |
 | 2. Memo Interaction  | 0/2            | Not started | -         |
 | 3. Persistence       | 0/1            | Not started | -         |
 | 4. Reset and Visual  | 0/2            | Not started | -         |
