@@ -13,7 +13,7 @@ The project replaces an existing Todo/Convex/Clerk SPA with a canvas-based memo 
 
 Decimal phases appear between their surrounding integers in numeric order.
 
-- [ ] **Phase 1: Canvas Foundation** - Remove dead dependencies and establish a full-viewport @xyflow/react canvas
+- [x] **Phase 1: Canvas Foundation** - Remove dead dependencies and establish a full-viewport @xyflow/react canvas (completed 2026-03-21)
 - [ ] **Phase 2: Memo Interaction** - Add, edit, drag, and keyboard-control memos on the canvas
 - [ ] **Phase 3: Persistence** - Survive page reload with localStorage save and restore
 - [ ] **Phase 4: Reset and Visual Design** - Reset-all confirmation and complete noir aesthetic
@@ -37,7 +37,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 Plans:
 
 - [x] 01-01: Remove dead dependencies (Convex, Clerk, Cloudflare, next-themes) and clean up entry points
-- [ ] 01-02: Install @xyflow/react and font packages; set up ReactFlowProvider and stable nodeTypes; render full-viewport canvas
+- [x] 01-02: Install @xyflow/react and font packages; set up ReactFlowProvider and stable nodeTypes; render full-viewport canvas
 
 ### Phase 2: Memo Interaction
 
@@ -100,7 +100,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4
 
 | Phase                | Plans Complete | Status      | Completed |
 | -------------------- | -------------- | ----------- | --------- |
-| 1. Canvas Foundation | 1/2 | In Progress|  |
+| 1. Canvas Foundation | 2/2 | Complete   | 2026-03-21 |
 | 2. Memo Interaction  | 0/2            | Not started | -         |
 | 3. Persistence       | 0/1            | Not started | -         |
 | 4. Reset and Visual  | 0/2            | Not started | -         |

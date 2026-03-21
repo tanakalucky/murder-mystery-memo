@@ -10,8 +10,8 @@ Requirements for initial release. Each maps to roadmap phases.
 ### Canvas
 
 - [x] **CANVAS-01**: @xyflow/react によるビューポート全画面キャンバスが表示される
-- [ ] **CANVAS-02**: キャンバスをドラッグでパンできる
-- [ ] **CANVAS-03**: スクロールでズームイン・アウトできる
+- [x] **CANVAS-02**: キャンバスをドラッグでパンできる
+- [x] **CANVAS-03**: スクロールでズームイン・アウトできる
 
 ### Memo
 
@@ -74,26 +74,26 @@ Explicitly excluded. Documented to prevent scope creep.
 
 Which phases cover which requirements. Updated during roadmap creation.
 
-| Requirement | Phase   | Status  |
-| ----------- | ------- | ------- |
+| Requirement | Phase   | Status   |
+| ----------- | ------- | -------- |
 | CANVAS-01   | Phase 1 | Complete |
-| CANVAS-02   | Phase 1 | Pending |
-| CANVAS-03   | Phase 1 | Pending |
-| MEMO-01     | Phase 2 | Pending |
-| MEMO-02     | Phase 2 | Pending |
-| MEMO-03     | Phase 2 | Pending |
-| MEMO-04     | Phase 2 | Pending |
-| MEMO-05     | Phase 2 | Pending |
-| MEMO-06     | Phase 2 | Pending |
-| MEMO-07     | Phase 2 | Pending |
-| MEMO-08     | Phase 2 | Pending |
-| PERS-01     | Phase 3 | Pending |
-| PERS-02     | Phase 3 | Pending |
-| RESET-01    | Phase 4 | Pending |
-| RESET-02    | Phase 4 | Pending |
-| VIS-01      | Phase 4 | Pending |
-| VIS-02      | Phase 4 | Pending |
-| VIS-03      | Phase 4 | Pending |
+| CANVAS-02   | Phase 1 | Complete |
+| CANVAS-03   | Phase 1 | Complete |
+| MEMO-01     | Phase 2 | Pending  |
+| MEMO-02     | Phase 2 | Pending  |
+| MEMO-03     | Phase 2 | Pending  |
+| MEMO-04     | Phase 2 | Pending  |
+| MEMO-05     | Phase 2 | Pending  |
+| MEMO-06     | Phase 2 | Pending  |
+| MEMO-07     | Phase 2 | Pending  |
+| MEMO-08     | Phase 2 | Pending  |
+| PERS-01     | Phase 3 | Pending  |
+| PERS-02     | Phase 3 | Pending  |
+| RESET-01    | Phase 4 | Pending  |
+| RESET-02    | Phase 4 | Pending  |
+| VIS-01      | Phase 4 | Pending  |
+| VIS-02      | Phase 4 | Pending  |
+| VIS-03      | Phase 4 | Pending  |
 
 **Coverage:**
 
