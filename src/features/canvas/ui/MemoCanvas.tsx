@@ -100,6 +100,8 @@ export const MemoCanvas = forwardRef<MemoCanvasHandle, object>((_props, ref) => 
       onNodesChange={onNodesChange}
       deleteKeyCode={null}
       zoomOnDoubleClick={false}
+      nodesConnectable={false}
+      nodesFocusable={false}
       onDoubleClick={handlePaneDoubleClick}
       onNodeDoubleClick={handleNodeDoubleClick}
       onNodeDragStop={handleNodeDragStop}

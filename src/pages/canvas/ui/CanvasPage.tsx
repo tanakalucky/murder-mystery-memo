@@ -13,7 +13,7 @@ export const CanvasPage = () => {
   }, []);
 
   return (
-    <div className="relative size-full bg-neutral-950">
+    <div className="relative size-full bg-noir-black">
       <ReactFlowProvider>
         <MemoCanvas ref={canvasRef} />
       </ReactFlowProvider>

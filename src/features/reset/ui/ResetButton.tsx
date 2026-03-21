@@ -19,17 +19,32 @@ type Props = {
 export const ResetButton = ({ onConfirm }: Props) => {
   return (
     <AlertDialog>
-      <AlertDialogTrigger render={<Button variant="ghost" size="sm" />}>
+      <AlertDialogTrigger
+        render={
+          <Button
+            variant="ghost"
+            size="sm"
+            className="text-noir-dusty-ash hover:bg-noir-dark-walnut hover:text-noir-old-paper"
+          />
+        }
+      >
         <Trash2 className="size-4" />
         リセット
       </AlertDialogTrigger>
-      <AlertDialogContent>
+      <AlertDialogContent className="border-noir-aged-wood bg-noir-dark-walnut text-noir-old-paper">
         <AlertDialogHeader>
           <AlertDialogTitle>すべてのメモを削除しますか？</AlertDialogTitle>
         </AlertDialogHeader>
         <AlertDialogFooter>
-          <AlertDialogCancel>キャンセル</AlertDialogCancel>
-          <AlertDialogAction onClick={onConfirm}>削除</AlertDialogAction>
+          <AlertDialogCancel className="border-noir-aged-wood text-noir-dusty-ash hover:bg-noir-aged-wood hover:text-noir-old-paper">
+            キャンセル
+          </AlertDialogCancel>
+          <AlertDialogAction
+            className="bg-noir-crimson text-noir-old-paper hover:bg-noir-crimson/80"
+            onClick={onConfirm}
+          >
+            削除
+          </AlertDialogAction>
         </AlertDialogFooter>
       </AlertDialogContent>
     </AlertDialog>

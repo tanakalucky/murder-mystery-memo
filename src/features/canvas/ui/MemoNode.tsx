@@ -52,12 +52,12 @@ export const MemoNode = ({ id, data }: NodeProps<MemoNodeType>) => {
   if (data.isEditing) {
     return (
       // nodrag クラスで編集中のドラッグを無効化（D-08）
-      <div className="nodrag w-48 rounded border border-black bg-white p-2">
+      <div className="nodrag w-48 rounded border border-noir-aged-wood bg-noir-old-paper p-2">
         <textarea
           ref={textareaRef}
           value={data.content}
           placeholder="メモを入力..."
-          className="w-full resize-none overflow-hidden bg-transparent text-black outline-none"
+          className="w-full resize-none overflow-hidden bg-transparent font-serif text-noir-ink-black outline-none placeholder:text-noir-dusty-ash"
           onChange={(e) => updateNodeData(id, { content: e.target.value })}
           onKeyDown={handleKeyDown}
           onBlur={handleBlur}
@@ -68,9 +68,9 @@ export const MemoNode = ({ id, data }: NodeProps<MemoNodeType>) => {
   }
 
   return (
-    <div className="w-48 rounded border border-black bg-white p-2">
+    <div className="w-48 rounded border border-noir-aged-wood bg-noir-old-paper p-2">
       {/* D-03: 空メモも高さを維持するためスペースを表示 */}
-      <p className="whitespace-pre-wrap text-black">{data.content || " "}</p>
+      <p className="font-serif whitespace-pre-wrap text-noir-ink-black">{data.content || " "}</p>
     </div>
   );
 };
