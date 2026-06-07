@@ -1,10 +1,13 @@
 import { Document } from "./document.tsx";
 import { Memo } from "../assets/memo/Memo.tsx";
+import { AppLayout } from "./AppLayout.tsx";
 
 export function MemoPage() {
   return () => (
     <Document head={<MemoHead />}>
-      <Memo />
+      <AppLayout activeRoute="memo">
+        <Memo />
+      </AppLayout>
     </Document>
   );
 }

@@ -175,7 +175,7 @@ export const Memo = clientEntry(
       const showDropdown = menuType !== null && filteredSuggestions.length > 0;
 
       return (
-        <main
+        <div
           mix={css({
             "--surface-0": "#dee2e6",
             "--surface-3": "#f0f4f7",
@@ -193,8 +193,6 @@ export const Memo = clientEntry(
             "& *, & *::before, & *::after": { boxSizing: "border-box" },
             margin: 0,
             padding: "48px 24px",
-            minHeight: "100vh",
-            background: "var(--surface-0)",
             color: "var(--text-primary)",
             fontFamily: FONT_STACK,
             fontSize: "14px",
@@ -202,20 +200,20 @@ export const Memo = clientEntry(
             WebkitFontSmoothing: "antialiased",
             MozOsxFontSmoothing: "grayscale",
             display: "flex",
+            flexDirection: "column",
+            width: "100%",
+            boxSizing: "border-box",
+            "@media (max-width: 767px)": {
+              padding: "24px 16px",
+            },
           })}
         >
           <div
             mix={css({
               width: "100%",
-              display: "flex",
-              gap: "24px",
+              boxSizing: "border-box",
             })}
           >
-            <div
-              mix={css({
-                flex: 1,
-              })}
-            >
               <div
                 mix={css({
                   display: "flex",
@@ -443,9 +441,8 @@ export const Memo = clientEntry(
                   )}
                 </div>
               </div>
-            </div>
           </div>
-        </main>
+        </div>
       );
     };
   },
