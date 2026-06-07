@@ -182,7 +182,6 @@ export const Memo = clientEntry(
             "--surface-4": "#f7fbff",
             "--text-primary": "#313539",
             "--text-tertiary": "#94989c",
-            "--brand-blue": "#2dacf9",
             "@media (prefers-color-scheme: dark)": {
               "--surface-0": "#1e2226",
               "--surface-3": "#313539",
@@ -276,7 +275,7 @@ export const Memo = clientEntry(
                         whiteSpace: "pre-wrap",
                         wordBreak: "break-all",
                         "&:focus": {
-                          borderColor: "var(--brand-blue)",
+                          borderColor: "var(--accent-color)",
                           boxShadow: "0 0 0 2px rgba(45, 172, 249, 0.2)",
                         },
                       }),
@@ -411,7 +410,7 @@ export const Memo = clientEntry(
                                 : "transparent",
                             color:
                               idx === activeIndex
-                                ? "var(--brand-blue)"
+                                ? "var(--accent-color)"
                                 : "var(--text-primary)",
                             borderRadius: "4px",
                             fontSize: "0.9rem",
@@ -460,11 +459,11 @@ const buttonStyle = css({
   border: 0,
   borderRadius: "8px",
   color: "#fff",
-  background: "var(--brand-blue)",
-  transition: "opacity 150ms ease",
+  background: "var(--accent-color)",
+  transition: "all 150ms ease",
   fontWeight: "bold",
   "&:hover, &:focus-visible": {
-    opacity: 0.9,
+    background: "var(--accent-hover)",
     outline: "none",
   },
 });

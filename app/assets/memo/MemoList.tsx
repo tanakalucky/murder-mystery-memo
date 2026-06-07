@@ -38,8 +38,8 @@ export function MemoList(handle: Handle<{ events: TimelineEvent[] }>) {
               {event.playerCharacter && (
                 <span
                   mix={css({
-                    background: "rgba(45, 172, 249, 0.15)",
-                    color: "var(--brand-blue)",
+                    background: "var(--accent-light)",
+                    color: "var(--accent-color)",
                     padding: "2px 8px",
                     borderRadius: "4px",
                     fontSize: "0.8rem",

@@ -106,12 +106,12 @@ export function HomePage() {
                   textDecoration: "none",
                   fontWeight: "bold",
                   fontSize: "15px",
-                  boxShadow: "0 4px 12px rgba(225, 29, 72, 0.25)",
+                  boxShadow: "0 4px 12px rgba(45, 172, 249, 0.25)",
                   transition: "all 200ms ease",
                   "&:hover": {
                     background: "var(--accent-hover)",
                     transform: "translateY(-2px)",
-                    boxShadow: "0 6px 16px rgba(225, 29, 72, 0.35)",
+                    boxShadow: "0 6px 16px rgba(45, 172, 249, 0.35)",
                   },
                   "@media (max-width: 480px)": {
                     width: "100%",

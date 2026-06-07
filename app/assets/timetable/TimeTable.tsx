@@ -126,11 +126,11 @@ export const TimeTable = clientEntry(
                 fontWeight: "bold",
                 fontSize: "14px",
                 transition: "all 150ms ease",
-                boxShadow: "0 4px 12px rgba(225, 29, 72, 0.15)",
+                boxShadow: "0 4px 12px rgba(45, 172, 249, 0.15)",
                 "&:hover": {
                   background: "var(--accent-hover)",
                   transform: "translateY(-1px)",
-                  boxShadow: "0 6px 16px rgba(225, 29, 72, 0.25)",
+                  boxShadow: "0 6px 16px rgba(45, 172, 249, 0.25)",
                 },
               })}
             >
@@ -260,11 +260,11 @@ export const TimeTable = clientEntry(
                       ) : (
                         <span
                           mix={css({
-                            color: "var(--accent-light)",
+                            color: "#7dd3fc",
                             fontWeight: "bold",
                           })}
                         >
-                          @{col}
+                          {col}
                         </span>
                       )}
                     </th>

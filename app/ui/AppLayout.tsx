@@ -128,9 +128,9 @@ export function AppLayout(handle: Handle<AppLayoutProps>) {
           "--text-secondary": "#475569",
           "--text-sidebar": "#f8fafc",
           "--text-sidebar-muted": "#94a3b8",
-          "--accent-color": "#e11d48", // Crimson Red
-          "--accent-hover": "#be123c",
-          "--accent-light": "#ffe4e6",
+          "--accent-color": "#2dacf9", // Brand Blue
+          "--accent-hover": "#1b9be3",
+          "--accent-light": "#e8f7ff",
           
           "@media (prefers-color-scheme: dark)": {
             "--bg-app": "#090d16",
@@ -141,9 +141,9 @@ export function AppLayout(handle: Handle<AppLayoutProps>) {
             "--text-secondary": "#9ca3af",
             "--text-sidebar": "#f3f4f6",
             "--text-sidebar-muted": "#6b7280",
-            "--accent-color": "#f43f5e",
-            "--accent-hover": "#e11d48",
-            "--accent-light": "#4c0519",
+            "--accent-color": "#42b4f9",
+            "--accent-hover": "#2dacf9",
+            "--accent-light": "#0c2b45",
           },
 
           display: "flex",
