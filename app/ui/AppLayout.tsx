@@ -4,11 +4,11 @@ import { routes } from "../routes.ts";
 
 export interface AppLayoutProps {
   children?: RemixNode;
-  activeRoute: "home" | "memo";
+  activeRoute: "home" | "memo" | "timetable";
 }
 
 interface SidebarContentProps {
-  activeRoute: "home" | "memo";
+  activeRoute: "home" | "memo" | "timetable";
   onClose?: RemixNode;
 }
 
@@ -58,6 +58,12 @@ function SidebarContent(handle: Handle<SidebarContentProps>) {
             icon={<MemoIcon />}
             label="タイムラインメモ"
             active={activeRoute === "memo"}
+          />
+          <SidebarLink
+            href={routes.timetable.href()}
+            icon={<CalendarIcon />}
+            label="タイムテーブル"
+            active={activeRoute === "timetable"}
           />
         </nav>
 
@@ -442,6 +448,26 @@ function MemoIcon() {
     >
       <path d="M12 20h9" />
       <path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z" />
+    </svg>
+  );
+}
+
+function CalendarIcon() {
+  return () => (
+    <svg
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
+      <line x1="16" y1="2" x2="16" y2="6" />
+      <line x1="8" y1="2" x2="8" y2="6" />
+      <line x1="3" y1="10" x2="21" y2="10" />
     </svg>
   );
 }
